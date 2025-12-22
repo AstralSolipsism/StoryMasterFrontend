@@ -1,0 +1,246 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "chinese": "Chinese",
+    "selectLanguage": "Select Language",
+    "close": "Close"
+  },
+  "nav": {
+    "title": "D&D AI Codex",
+    "rulebook": "Rulebook",
+    "scripts": "Scripts",
+    "characters": "Characters",
+    "dm": "DM",
+    "memories": "Memories",
+    "settings": "Settings",
+    "play": "Play"
+  },
+  "settings": {
+    "title": "System Configuration",
+    "subtitle": "Manage Arcane Connections & Cosmic Rules",
+    "llmNexus": "LLM Nexus",
+    "provider": "Provider",
+    "apiKey": "API Key",
+    "modelName": "Model Name",
+    "baseUrl": "Base URL (Optional)",
+    "testConnection": "Test Connection",
+    "cosmicRules": "Cosmic Rules",
+    "temperature": "Temperature",
+    "precise": "Precise",
+    "creative": "Creative",
+    "maxTokens": "Max Tokens",
+    "globalSystemPrompt": "Global System Prompt",
+    "saveConfiguration": "Inscribe Configuration",
+    "connectionEstablished": "Connection Established!",
+    "channeling": "Channeling magic...",
+    "configurationSaved": "Configuration Inscribed into the fabric of reality."
+  },
+  "characters": {
+    "title": "Character Sheets",
+    "subtitle": "Heroes and legends of the realm.",
+    "heroes": "Heroes",
+    "level": "Lvl",
+    "hp": "HP",
+    "ac": "AC",
+    "tabs": {
+        "details": "Details",
+        "inventory": "Inventory & Spells",
+        "relationships": "Relationships"
+    },
+    "history": "History & Background",
+    "inventory": "Inventory",
+    "spells": "Spells",
+    "graphTitle": "The social web of {name}",
+    "graph": {
+        "loading": "Summoning relations...",
+        "title": "Relationship Graph",
+        "interactive": "Interactive Map",
+        "legend": {
+            "hostile": "Hostile",
+            "friendly": "Friendly",
+            "neutral": "Neutral"
+        }
+    },
+    "noCharacterSelected": "Select a hero to view their chronicle.",
+    "create": "Create Hero",
+    "stats": {
+      "str": "STR",
+      "dex": "DEX",
+      "con": "CON",
+      "int": "INT",
+      "wis": "WIS",
+      "cha": "CHA"
+    },
+    "sheet": {
+      "actions": {
+        "relations": "Relations",
+        "inventory": "Inventory",
+        "edit": "Edit Sheet",
+        "save": "Save Changes",
+        "export": "Export PDF"
+      },
+      "placeholders": {
+        "qty": "1",
+        "weight": "lb",
+        "level": "Lvl",
+        "bonus": "+0",
+        "damage": "1d6"
+      },
+      "savings": "Saving Throws",
+      "savingThrow": "Saving Throw",
+      "savingsDetail": "Details about {stat} saving throw...",
+      "skills": "Skills",
+      "skillDetail": "Details about {skill} skill...",
+      "passivePerception": "Passive Wisdom (Perception)",
+      "combat": {
+        "armorClass": "Armor Class",
+        "initiative": "Initiative",
+        "speed": "Speed",
+        "hitPoints": "Hit Points",
+        "current": "Current",
+        "max": "Max",
+        "temp": "Temp",
+        "hitDice": "Hit Dice",
+        "total": "Total",
+        "left": "Left",
+        "deathSaves": "Death Saves",
+        "success": "Success",
+        "failure": "Failure"
+      },
+      "attacks": {
+          "title": "Attacks & Spellcasting",
+          "add": "Add",
+          "name": "Name",
+          "atk": "Atk",
+          "dmgType": "Dmg/Type",
+          "namePlaceholder": "Name",
+          "typePlaceholder": "Type",
+          "noResources": "No resources tracked",
+          "newAttack": "New Attack"
+      },
+      "traits": {
+          "title": "Features & Traits",
+          "add": "Add",
+          "empty": "Thinking about features..."
+      },
+      "personality": {
+          "traits": "Personality Traits",
+          "ideals": "Ideals",
+          "bonds": "Bonds",
+          "flaws": "Flaws",
+          "enter": "Enter {trait}..."
+      },
+      "header": {
+          "editAvatar": "Edit Avatar",
+          "characterName": "Character Name",
+          "namePlaceholder": "Enter Character Name...",
+          "classLevel": "Class & Level",
+          "classPlaceholder": "Class",
+          "race": "Race",
+          "background": "Background",
+          "alignment": "Alignment",
+          "xp": "Experience Points",
+          "playerName": "Player Name"
+      }
+    },
+    "skills": {
+      "acrobatics": "Acrobatics",
+      "animal_handling": "Animal Handling",
+      "arcana": "Arcana",
+      "athletics": "Athletics",
+      "deception": "Deception",
+      "history": "History",
+      "insight": "Insight",
+      "intimidation": "Intimidation",
+      "investigation": "Investigation",
+      "medicine": "Medicine",
+      "nature": "Nature",
+      "perception": "Perception",
+      "performance": "Performance",
+      "persuasion": "Persuasion",
+      "religion": "Religion",
+      "sleight_of_hand": "Sleight of Hand",
+      "stealth": "Stealth",
+      "survival": "Survival"
+    },
+    "inventory": {
+        "title": "Inventory",
+        "addItem": "Add Item",
+        "itemName": "Item Name",
+        "qty": "Qty",
+        "weight": "Weight",
+        "notes": "Notes",
+        "itemPlaceholder": "Item ID/Name",
+        "notesPlaceholder": "Notes...",
+        "empty": "Empty Backpack",
+        "totalWeight": "Total Weight",
+        "newItem": "New Item"
+    }
+  },
+  "dm": {
+    "title": "Dungeon Master Control Plane",
+    "subtitle": "Configure the AI Agents and their narrative logic flow.",
+    "legend": "Agent Types",
+    "narrator": "Narrator",
+    "logic": "Logic/Rule",
+    "system": "System",
+    "npc": "NPC",
+    "agent": "Agent",
+    "model": "Model",
+    "creativity": "Creativity (Temperature)",
+    "systemPrompt": "System Prompt",
+    "directives": "Directives & Rules",
+    "addRule": "Add new rule...",
+    "add": "Add",
+    "updateConfig": "Update Agent Configuration",
+    "noAgentSelected": "Select an Agent Node to configure its logic."
+  },
+  "rulebook": {
+    "title": "Rulebook",
+    "subtitle": "The laws of the realm, etched in magic.",
+    "chapters": "Chapters",
+    "backToChapter": "Back to Chapter",
+    "knowledgeGraph": "Knowledge Graph"
+  },
+  "scripts": {
+    "title": "Adventure Scripts",
+    "subtitle": "Tales waiting to be told.",
+    "adventures": "Adventures",
+    "tabs": {
+        "scenario": "Scenario",
+        "characters": "Characters",
+        "tasks": "Tasks"
+    },
+    "contextGraph": "Context Graph",
+    "noScriptSelected": "Select an adventure to begin."
+  },
+  "memories": {
+    "title": "Adventure Memories",
+    "subtitle": "The Archives of Past and Present Chronicles",
+    "chronicles": "Chronicles",
+    "active": "Ongoing",
+    "finished": "Archived",
+    "sessions": "Sessions",
+    "partyLevel": "Party Level",
+    "playTime": "Play Time",
+    "encounters": "Encounters",
+    "timelineTitle": "The Saga So Far",
+    "timelineSession": "Session",
+    "noCampaignSelected": "Select a Chronicle from the archives to relive the memories."
+  },
+    "play": {
+    "dmTitle": "Dungeon Master AI",
+    "session": "Session #{id} - {title}",
+    "typing": "What do you do?",
+    "dmRole": "DM",
+    "referenceTabs": {
+        "character": "Character",
+        "spells": "Spells",
+        "scene": "Scene"
+    },
+    "grimoire": "Grimoire",
+    "currentLocation": "Current Location",
+    "entitiesNearby": "Entities Nearby"
+  }
+}

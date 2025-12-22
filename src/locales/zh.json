@@ -1,0 +1,246 @@
+{
+  "common": {
+    "language": "语言",
+    "english": "English",
+    "chinese": "中文",
+    "selectLanguage": "选择语言",
+    "close": "关闭"
+  },
+  "nav": {
+    "title": "D&D AI 典籍",
+    "rulebook": "规则书",
+    "scripts": "剧本",
+    "characters": "角色",
+    "dm": "地下城主",
+    "memories": "记忆",
+    "settings": "设置",
+    "play": "开始游戏"
+  },
+  "settings": {
+    "title": "系统配置",
+    "subtitle": "管理奥术连接与宇宙法则",
+    "llmNexus": "LLM 枢纽",
+    "provider": "提供商",
+    "apiKey": "API 密钥",
+    "modelName": "模型名称",
+    "baseUrl": "基础 URL (可选)",
+    "testConnection": "测试连接",
+    "cosmicRules": "宇宙法则",
+    "temperature": "温度",
+    "precise": "精准",
+    "creative": "创意",
+    "maxTokens": "最大 Tokens",
+    "globalSystemPrompt": "全局系统提示词",
+    "saveConfiguration": "铭刻配置",
+    "connectionEstablished": "连接已建立！",
+    "channeling": "正在引导魔法...",
+    "configurationSaved": "配置已铭刻于现实织锦之中。"
+  },
+  "characters": {
+    "title": "角色卡",
+    "subtitle": "领域的英雄与传说。",
+    "heroes": "英雄",
+    "level": "等级",
+    "hp": "生命值",
+    "ac": "护甲等级",
+    "tabs": {
+        "details": "详情",
+        "inventory": "物品与法术",
+        "relationships": "关系网"
+    },
+    "history": "历史与背景",
+    "inventory": "物品栏",
+    "spells": "法术",
+    "graphTitle": "{name} 的社交网络",
+    "graph": {
+        "loading": "正在召唤关系...",
+        "title": "关系网络图",
+        "interactive": "交互式地图",
+        "legend": {
+             "hostile": "敌对",
+             "friendly": "友好",
+             "neutral": "中立"
+        }
+    },
+    "noCharacterSelected": "选择一位英雄查看其传记。",
+    "create": "创建新角色",
+    "stats": {
+      "str": "力量",
+      "dex": "敏捷",
+      "con": "体质",
+      "int": "智力",
+      "wis": "感知",
+      "cha": "魅力"
+    },
+    "sheet": {
+      "actions": {
+        "relations": "关系网",
+        "inventory": "物品栏",
+        "edit": "编辑角色",
+        "save": "保存更改",
+        "export": "导出 PDF"
+      },
+      "placeholders": {
+        "qty": "1",
+        "weight": "磅",
+        "level": "Lv",
+        "bonus": "+0",
+        "damage": "1d6"
+      },
+      "savings": "豁免检定",
+      "savingThrow": "豁免",
+      "savingsDetail": "关于 {stat} 豁免检定的详细信息...",
+      "skills": "技能",
+      "skillDetail": "关于 {skill} 技能的详细信息...",
+      "passivePerception": "被动感知 (觉察)",
+      "combat": {
+        "armorClass": "护甲等级",
+        "initiative": "先攻",
+        "speed": "速度",
+        "hitPoints": "生命值",
+        "current": "当前",
+        "max": "最大",
+        "temp": "临时",
+        "hitDice": "生命骰",
+        "total": "总计",
+        "left": "剩余",
+        "deathSaves": "死亡豁免",
+        "success": "成功",
+        "failure": "失败"
+      },
+      "attacks": {
+        "title": "攻击与施法",
+        "add": "添加",
+        "name": "名称",
+        "atk": "攻击加值",
+        "dmgType": "伤害/类型",
+        "namePlaceholder": "名称",
+        "typePlaceholder": "类型",
+        "noResources": "未追踪资源",
+        "newAttack": "新攻击"
+      },
+      "traits": {
+        "title": "特性与特质",
+        "add": "添加",
+        "empty": "正在思考特性..."
+      },
+      "personality": {
+        "traits": "性格特质",
+        "ideals": "理想",
+        "bonds": "纽带",
+        "flaws": "缺陷",
+        "enter": "输入 {trait}..."
+      },
+      "header": {
+        "editAvatar": "编辑头像",
+        "characterName": "角色名称",
+        "namePlaceholder": "输入角色名称...",
+        "classLevel": "职业 & 等级",
+        "classPlaceholder": "职业",
+        "race": "种族",
+        "background": "背景",
+        "alignment": "阵营",
+        "xp": "经验值",
+        "playerName": "玩家名称"
+      }
+    },
+    "skills": {
+      "acrobatics": "特技",
+      "animal_handling": "驯兽",
+      "arcana": "奥术",
+      "athletics": "运动",
+      "deception": "欺瞒",
+      "history": "历史",
+      "insight": "洞悉",
+      "intimidation": "威吓",
+      "investigation": "调查",
+      "medicine": "医药",
+      "nature": "自然",
+      "perception": "觉察",
+      "performance": "表演",
+      "persuasion": "游说",
+      "religion": "宗教",
+      "sleight_of_hand": "巧手",
+      "stealth": "隐匿",
+      "survival": "求生"
+    },
+    "inventory": {
+        "title": "物品栏",
+        "addItem": "添加物品",
+        "itemName": "物品名称",
+        "qty": "数量",
+        "weight": "重量",
+        "notes": "备注",
+        "itemPlaceholder": "物品 ID/名称",
+        "notesPlaceholder": "备注...",
+        "empty": "空背包",
+        "totalWeight": "总重量",
+        "newItem": "新物品"
+    }
+  },
+  "dm": {
+    "title": "地下城主控制面板",
+    "subtitle": "配置 AI 代理及其叙事逻辑流。",
+    "legend": "代理类型",
+    "narrator": "叙述者",
+    "logic": "逻辑/规则",
+    "system": "系统",
+    "npc": "NPC",
+    "agent": "代理",
+    "model": "模型",
+    "creativity": "创造力 (温度)",
+    "systemPrompt": "系统提示词",
+    "directives": "指令与规则",
+    "addRule": "添加新规则...",
+    "add": "添加",
+    "updateConfig": "更新代理配置",
+    "noAgentSelected": "选择一个代理节点以配置其逻辑。"
+  },
+  "rulebook": {
+    "title": "规则书",
+    "subtitle": "铭刻在魔法中的领域法则。",
+    "chapters": "章节",
+    "backToChapter": "返回章节",
+    "knowledgeGraph": "知识图谱"
+  },
+  "scripts": {
+    "title": "冒险剧本",
+    "subtitle": "等待讲述的故事。",
+    "adventures": "冒险",
+    "tabs": {
+        "scenario": "场景",
+        "characters": "角色",
+        "tasks": "任务"
+    },
+    "contextGraph": "上下文图谱",
+    "noScriptSelected": "选择一个冒险以开始。"
+  },
+  "memories": {
+    "title": "冒险记忆",
+    "subtitle": "过去与现在的编年史档案",
+    "chronicles": "编年史",
+    "active": "进行中",
+    "finished": "已归档",
+    "sessions": "会话",
+    "partyLevel": "队伍等级",
+    "playTime": "游戏时间",
+    "encounters": "遭遇战",
+    "timelineTitle": "迄今为止的传奇",
+    "timelineSession": "会话",
+    "noCampaignSelected": "从档案中选择编年史以重温记忆。"
+  },
+  "play": {
+    "dmTitle": "地下城主 AI",
+    "session": "会话 #{id} - {title}",
+    "typing": "你要做什么？",
+    "dmRole": "DM",
+    "referenceTabs": {
+        "character": "角色",
+        "spells": "法术",
+        "scene": "场景"
+    },
+    "grimoire": "魔法书",
+    "currentLocation": "当前位置",
+    "entitiesNearby": "附近实体"
+  }
+}

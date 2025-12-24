@@ -56,7 +56,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType, computed } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { CharacterSheet } from '../../services/mockData';
 

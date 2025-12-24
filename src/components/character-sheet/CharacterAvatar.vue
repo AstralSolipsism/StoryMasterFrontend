@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRef, ref, watch } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { PropType } from 'vue'
 import type { CharacterSheet } from '../../services/mockData';

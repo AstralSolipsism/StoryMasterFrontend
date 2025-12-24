@@ -19,7 +19,10 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow container mx-auto p-6 relative">
+    <main
+      class="flex-grow relative"
+      :class="isRulebookRoute ? 'w-full max-w-none mx-0 p-0' : 'container mx-auto p-6'"
+    >
       <!-- The router view will render the active page -->
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
@@ -32,12 +35,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import DynamicBackground from './components/DynamicBackground.vue'
 
 const bgRef = ref<InstanceType<typeof DynamicBackground> | null>(null)
 const router = useRouter()
+const route = useRoute()
+
+/** 仅规则书页移除“居中定宽壳”，避免宽屏两侧永远留白 */
+const isRulebookRoute = computed(() => route.path === '/rulebook')
+
 let navCount = 0
 
 router.afterEach(() => {

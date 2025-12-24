@@ -31,7 +31,6 @@ const currentIndex = ref(0)
 const isTransitioning = ref(false)
 const lastSwitchAt = ref(0)
 
-const SWITCH_TRANSITION_MS = 1200
 const SWITCH_COOLDOWN_MS = 1400
 
 function getBackgroundUrls(): string[] {

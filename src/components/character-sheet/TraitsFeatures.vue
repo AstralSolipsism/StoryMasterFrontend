@@ -3,7 +3,7 @@
 
     <!-- Personality Traits, Ideals, Bonds, Flaws -->
     <div class="grid grid-cols-1 gap-4">
-       <div v-for="(key, index) in personalityKeys" :key="key" class="border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm text-[var(--color-text-primary)] shadow-sm relative group">
+       <div v-for="key in personalityKeys" :key="key" class="border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm text-[var(--color-text-primary)] shadow-sm relative group">
            <div class="text-[0.65rem] uppercase tracking-wide font-bold mb-1 text-[var(--color-text-secondary)]">{{ t('characters.sheet.personality.' + key) }}</div>
            <div v-if="!isEditing" class="text-xs italic leading-relaxed min-h-[1.5rem] whitespace-pre-wrap font-serif">
                {{ traits[key] || '...' }}

@@ -1,9 +1,9 @@
 <template>
   <div class="flex h-[calc(100vh-4rem)] gap-4 overflow-hidden p-2">
     <!-- Left: Chat Interface (The "Table") -->
-    <div class="flex-1 flex flex-col bg-white/80 backdrop-blur-sm rounded-lg shadow-inner border border-stone-300 overflow-hidden relative">
+    <div class="flex-1 flex flex-col bg-white/80 backdrop-blur-md rounded-lg shadow-inner border border-stone-300 overflow-hidden relative">
       <!-- Chat Header -->
-      <div class="p-4 bg-stone-100 border-b border-stone-200 flex justify-between items-center">
+      <div class="p-4 bg-stone-100/90 backdrop-blur-sm border-b border-stone-200 flex justify-between items-center">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center text-amber-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3 3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/><line x1="8" x2="16" y1="22" y2="22"/></svg>
@@ -51,12 +51,12 @@
       </div>
 
       <!-- Input Area -->
-      <div class="p-4 bg-white border-t border-stone-200">
+      <div class="p-4 bg-white/90 backdrop-blur-sm border-t border-stone-200">
         <div class="relative">
-          <textarea 
+          <textarea
             v-model="newMessage"
             @keydown.enter.prevent="sendMessage"
-            class="w-full bg-stone-50 border border-stone-300 rounded-lg pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-900/20 focus:border-indigo-900 resize-none h-14"
+            class="w-full bg-stone-50/80 border border-stone-300 rounded-lg pl-4 pr-12 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-900/20 focus:border-indigo-900 resize-none h-14"
             :placeholder="$t('play.typing')"
           ></textarea>
           <button 
@@ -70,20 +70,20 @@
     </div>
 
     <!-- Right: Reference Book -->
-    <div class="w-96 flex flex-col bg-parchment rounded-r-lg shadow-2xl border-l-4 border-l-ink-black/80 relative perspective-book">
+    <div class="w-96 flex flex-col bg-parchment-light rounded-r-lg shadow-2xl border-l-4 border-l-ink-black/80 relative perspective-book">
        <!-- Book Spine Visual -->
        <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-stone-800 to-stone-600 rounded-l"></div>
        
        <!-- Tabs (Bookmarks) -->
        <div class="flex pl-4 pt-2 gap-1 border-b border-ink-black/10 bg-stone-100/50">
-         <button 
-           v-for="tab in ['Character', 'Spells', 'Scene']" 
+         <button
+           v-for="tab in ['Character', 'Spells', 'Scene']"
            :key="tab"
            @click="activeTab = tab"
            :class="[
              'px-4 py-2 font-cinzel text-sm rounded-t transition-colors',
-             activeTab === tab 
-               ? 'bg-parchment text-ink-black font-bold border-t border-x border-ink-black/20 translate-y-[1px]' 
+             activeTab === tab
+               ? 'bg-parchment-light text-ink-black font-bold border-t border-x border-ink-black/20 translate-y-[1px]'
                : 'bg-stone-200 text-stone-500 hover:bg-stone-300'
            ]"
          >
@@ -92,7 +92,7 @@
        </div>
 
        <!-- Content -->
-       <div class="flex-1 overflow-y-auto p-6 font-serif">
+       <div class="flex-1 overflow-y-auto p-6 font-serif paper-texture">
          
          <!-- Character Tab -->
          <div v-if="activeTab === 'Character'" class="space-y-6">

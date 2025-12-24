@@ -2,7 +2,7 @@
   <div class="characters-container">
     <div class="h-full flex flex-col md:flex-row gap-6">
       <!-- Sidebar: Character List -->
-      <aside class="w-full md:w-64 bg-stone-100/80 border border-stone-300 rounded p-4 flex flex-col md:h-[calc(100vh-100px)]">
+      <aside class="w-full md:w-64 bg-stone-100/60 backdrop-blur-md border border-stone-300 rounded p-4 flex flex-col md:h-[calc(100vh-100px)] shadow">
         <h3 class="text-lg font-bold mb-4 uppercase tracking-widest text-ink-black border-b border-stone-300 pb-2">{{ $t('characters.heroes') }}</h3>
         <ul class="space-y-2 text-stone-700 flex-grow overflow-y-auto custom-scrollbar">
           <li
@@ -25,7 +25,7 @@
       </aside>
 
       <!-- Main Content Area -->
-      <div class="flex-grow md:h-[calc(100vh-100px)] overflow-y-auto custom-scrollbar relative paper-texture rounded border border-stone-200">
+      <div class="flex-grow md:h-[calc(100vh-100px)] overflow-y-auto custom-scrollbar relative paper-texture bg-white/40 backdrop-blur-sm rounded border border-stone-400">
         
         <div v-if="activeCharacter" class="h-full">
            <CharacterSheet 

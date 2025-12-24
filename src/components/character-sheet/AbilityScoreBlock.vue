@@ -1,12 +1,12 @@
 <template>
   <div
-    class="ability-score-block flex gap-4 bg-stone-100/50 p-2 rounded border border-stone-300"
+    class="ability-score-block flex gap-4 bg-stone-100/30 backdrop-blur-sm p-2 rounded border border-stone-300"
     :class="horizontal ? 'flex-row justify-between overflow-x-auto' : 'flex-col'"
   >
     <div
       v-for="(score, stat) in stats"
       :key="stat"
-      class="ability-card relative flex flex-col items-center justify-center p-2 rounded-lg bg-white/40 border border-stone-300 shadow-sm"
+      class="ability-card relative flex flex-col items-center justify-center p-2 rounded-lg bg-white/40 backdrop-blur-sm border border-stone-300 shadow-sm"
       :class="horizontal ? 'flex-1 min-w-[70px] max-w-[120px]' : ''"
     >
       

@@ -1,5 +1,5 @@
 <template>
-  <div class="character-header p-4 border-2 border-stone-800 rounded-sm bg-parchment-light relative overflow-hidden">
+  <div class="character-header p-4 border-2 border-stone-800 rounded-sm bg-parchment-light paper-texture relative overflow-hidden">
     <!-- Decorative border corners/elements could be added here -->
     
     <div class="flex flex-col gap-4">
@@ -40,7 +40,7 @@
       <div class="flex-col justify-end">
 
           <!-- Attributes Grid -->
-          <div class="grid grid-cols-2 gap-3 p-3 border-t border-b border-stone-400/50 bg-white/20">
+          <div class="grid grid-cols-2 gap-3 p-3 border-t border-b border-stone-400/50 bg-white/10 backdrop-blur-sm">
             
             <!-- Class & Level -->
             <div class="flex flex-col">

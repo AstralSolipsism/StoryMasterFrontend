@@ -1,6 +1,6 @@
 <template>
   <div class="settings-view">
-    <div class="content-container">
+    <div class="content-container paper-card backdrop-card">
       <header class="page-header">
         <h1>{{ $t('settings.title') }}</h1>
         <p class="subtitle">{{ $t('settings.subtitle') }}</p>
@@ -181,8 +181,14 @@ h1 {
   }
 }
 
+.backdrop-card {
+    background-color: rgba(255, 252, 240, 0.95);
+    border-radius: 8px;
+    padding: 3rem;
+}
+
 .parchment-card {
-  background: rgba(255, 252, 240, 0.9);
+  background: rgba(255, 252, 240, 0.6);
   border: 1px solid #8d6e63;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 0 20px rgba(161, 136, 127, 0.2);
   border-radius: 8px;

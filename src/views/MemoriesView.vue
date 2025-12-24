@@ -1,13 +1,13 @@
 <template>
   <div class="memories-view">
-    <header class="page-header">
+    <header class="page-header bg-stone-100/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-stone-200 inline-block mx-auto mb-8">
       <h1>{{ $t('memories.title') }}</h1>
       <p class="subtitle">{{ $t('memories.subtitle') }}</p>
     </header>
 
     <div class="memories-container">
       <!-- Campaign List (Sidebar) -->
-      <aside class="campaign-list">
+      <aside class="campaign-list backdrop-blur-md">
         <h2>{{ $t('memories.chronicles') }}</h2>
         <div
           v-for="campaign in campaigns"
@@ -25,7 +25,7 @@
       </aside>
 
       <!-- Details & Visualization (Main) -->
-      <main class="campaign-details" v-if="selectedCampaign">
+      <main class="campaign-details backdrop-blur-md" v-if="selectedCampaign">
         <div class="details-header">
           <h2>{{ selectedCampaign.title }}</h2>
           <div class="stats-row">
@@ -54,7 +54,7 @@
               class="timeline-item"
             >
               <div class="timeline-marker"></div>
-              <div class="timeline-content">
+              <div class="timeline-content backdrop-blur-sm">
                 <span class="event-date">{{ $t('memories.timelineSession') }} {{ event.session }}</span>
                 <h4>{{ event.title }}</h4>
                 <p>{{ event.description }}</p>
@@ -64,7 +64,7 @@
         </div>
       </main>
 
-      <div class="empty-state" v-else>
+      <div class="empty-state backdrop-blur-sm" v-else>
         <p>{{ $t('memories.noCampaignSelected') }}</p>
       </div>
     </div>
@@ -175,12 +175,13 @@ h1 {
 /* Sidebar */
 .campaign-list {
   width: 300px;
-  background: rgba(255, 252, 240, 0.6);
+  background: rgba(255, 252, 240, 0.85);
   border: 1px solid #8d6e63;
   border-radius: 8px;
   padding: 1rem;
   overflow-y: auto;
   flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .campaign-list h2 {
@@ -192,7 +193,7 @@ h1 {
 }
 
 .campaign-card {
-  background: #fff8e1;
+  background: rgba(255, 248, 225, 0.8);
   border: 1px solid #d7ccc8;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -209,7 +210,7 @@ h1 {
 }
 
 .campaign-card.active {
-  background: #efebe9;
+  background: rgba(239, 235, 233, 0.9);
   border-left: 5px solid #d84315;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -235,12 +236,12 @@ h1 {
 }
 
 .campaign-status.active {
-  background: #e8f5e9;
+  background: rgba(232, 245, 233, 0.9);
   color: #2e7d32;
 }
 
 .campaign-status.finished {
-  background: #eceff1;
+  background: rgba(236, 239, 241, 0.9);
   color: #455a64;
 }
 
@@ -265,7 +266,7 @@ h1 {
   border-radius: 8px;
   padding: 2rem;
   overflow-y: auto;
-  box-shadow: inset 0 0 40px rgba(161, 136, 127, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15), inset 0 0 40px rgba(161, 136, 127, 0.2);
   display: flex;
   flex-direction: column;
 }
@@ -358,11 +359,12 @@ h1 {
 }
 
 .timeline-content {
-  background: #fff8e1;
+  background: rgba(255, 248, 225, 0.9);
   border: 1px solid #d7ccc8;
   padding: 1rem;
   border-radius: 4px;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .timeline-content::before {
@@ -407,5 +409,6 @@ h1 {
   border: 2px dashed #8d6e63;
   border-radius: 8px;
   background: rgba(255, 252, 240, 0.5);
+  box-shadow: inset 0 0 20px rgba(161, 136, 127, 0.1);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full flex flex-col bg-[#fdf6e3]">
+  <div class="h-full flex flex-col">
     <!-- Header -->
-    <div class="bg-[#2c1810] text-[#f0e6d2] p-4 shadow-md z-10">
+    <div class="bg-[#2c1810]/90 text-[#f0e6d2] p-4 shadow-md z-10 backdrop-blur-sm">
       <h1 class="text-2xl font-serif font-bold">{{ $t('dm.title') }}</h1>
       <p class="text-sm opacity-80">{{ $t('dm.subtitle') }}</p>
     </div>
@@ -10,7 +10,7 @@
       <!-- Main Canvas (Workflow Graph) -->
       <div class="flex-1 relative" ref="graphContainer">
         <!-- Legend -->
-        <div class="absolute top-4 left-4 bg-white/80 p-3 rounded shadow-md border border-[#8b4513] text-xs z-10 pointer-events-none">
+        <div class="absolute top-4 left-4 bg-[#f5f5dc]/90 backdrop-blur-sm p-3 rounded shadow-md border border-[#8b4513] text-xs z-10 pointer-events-none">
           <h3 class="font-bold mb-2 text-[#2c1810]">{{ $t('dm.legend') }}</h3>
           <div class="flex items-center mb-1"><span class="w-3 h-3 rounded-full bg-[#7c3aed] mr-2"></span> {{ $t('dm.narrator') }}</div>
           <div class="flex items-center mb-1"><span class="w-3 h-3 rounded-full bg-[#2563eb] mr-2"></span> {{ $t('dm.logic') }}</div>
@@ -20,8 +20,8 @@
       </div>
 
       <!-- Configuration Panel (Sidebar) -->
-      <div 
-        class="w-1/3 border-l-4 border-[#8b4513] bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] bg-[#f4e4bc] p-6 overflow-y-auto shadow-2xl flex flex-col"
+      <div
+        class="w-1/3 border-l-4 border-[#8b4513] bg-[#f4e4bc]/90 backdrop-blur-md p-6 overflow-y-auto shadow-2xl flex flex-col"
         v-if="selectedAgent"
       >
         <div class="border-b-2 border-[#8b4513] pb-4 mb-6">
@@ -105,7 +105,7 @@
       </div>
 
       <!-- Empty State -->
-      <div v-else class="w-1/3 flex items-center justify-center bg-[#f4e4bc] border-l-4 border-[#8b4513] text-[#5c3a21] italic font-serif p-8 text-center opacity-70">
+      <div v-else class="w-1/3 flex items-center justify-center bg-[#f4e4bc]/60 backdrop-blur-sm border-l-4 border-[#8b4513] text-[#5c3a21] italic font-serif p-8 text-center">
         {{ $t('dm.noAgentSelected') }}
       </div>
     </div>

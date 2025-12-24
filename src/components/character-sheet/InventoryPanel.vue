@@ -1,5 +1,5 @@
 <template>
-  <div class="inventory-panel border-2 border-[var(--color-border)] rounded-lg p-3 bg-[var(--color-bg-soft)] text-[var(--color-text-primary)] shadow-sm flex flex-col h-full min-h-[200px]">
+  <div class="inventory-panel border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm text-[var(--color-text-primary)] shadow-sm flex flex-col h-full min-h-[200px]">
     <!-- Header -->
     <div class="header flex justify-between items-center mb-3">
         <h3 class="text-xs uppercase font-bold text-[var(--color-text-secondary)] tracking-wider">{{ t('characters.inventory.title') }}</h3>

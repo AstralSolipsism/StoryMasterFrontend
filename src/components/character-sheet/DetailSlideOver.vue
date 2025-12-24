@@ -6,7 +6,7 @@
         <div class="fixed inset-0 bg-black/50 transition-opacity backdrop-filter backdrop-blur-sm" @click="$emit('close')"></div>
 
         <!-- Panel -->
-        <div class="relative w-full max-w-md h-full bg-[#fdf6e3] shadow-2xl flex flex-col transform transition-transform border-l-4 border-ink-red paper-texture">
+        <div class="relative w-full max-w-md h-full bg-[#fdf6e3]/95 backdrop-blur-md shadow-2xl flex flex-col transform transition-transform border-l-4 border-ink-red paper-texture">
           
           <!-- Close Button -->
           <button @click="$emit('close')" class="absolute top-4 right-4 text-stone-500 hover:text-ink-red transition-colors focus:outline-none z-10">
@@ -17,7 +17,7 @@
           </button>
 
           <!-- Header -->
-          <div class="pt-12 px-6 pb-4 border-b border-stone-300 bg-stone-100/50">
+          <div class="pt-12 px-6 pb-4 border-b border-stone-300 bg-stone-100/40 backdrop-blur-sm">
             <h2 class="text-2xl font-serif font-bold text-ink-black tracking-wide">{{ title }}</h2>
             <div v-if="subtitle" class="text-sm font-bold uppercase text-stone-500 mt-1 tracking-widest">{{ subtitle }}</div>
           </div>

@@ -1,16 +1,16 @@
 <template>
-  <div class="catalog-tree text-stone-700">
+  <div class="catalog-tree text-stone-300">
     <div v-for="node in nodes" :key="node.id">
-      <div 
-        class="node-label flex items-center cursor-pointer py-1 px-2 hover:bg-stone-200/50 rounded transition-colors mb-1"
+      <div
+        class="node-label flex items-center cursor-pointer py-1 px-2 hover:bg-white/10 hover:text-stone-100 rounded-sm transition-all duration-200 mb-1"
         :class="{
-          'text-ink-red font-bold bg-stone-100': activeId === node.id,
-          'text-stone-900 font-semibold': node.children &&  depth === 0
+          'text-amber-400 font-bold bg-white/5 shadow-sm': activeId === node.id,
+          'text-stone-200 font-semibold': node.children &&  depth === 0
         }"
         :style="{ paddingLeft: `${depth * 16 + 8}px` }"
         @click.stop="handleNodeClick(node)"
       >
-        <span v-if="node.children && node.children.length > 0" class="mr-2 text-xs text-stone-500 w-4 h-4 flex items-center justify-center">
+        <span v-if="node.children && node.children.length > 0" class="mr-2 text-[10px] text-stone-500 w-4 h-4 flex items-center justify-center">
             <template v-if="isExpanded(node)">▼</template>
             <template v-else>▶</template>
         </span>

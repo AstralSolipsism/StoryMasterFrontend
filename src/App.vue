@@ -27,11 +27,26 @@
         </transition>
       </router-view>
     </main>
+    <DynamicBackground ref="bgRef" />
   </div>
 </template>
 
 <script setup lang="ts">
-// Layout logic here if needed
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import DynamicBackground from './components/DynamicBackground.vue'
+
+const bgRef = ref<InstanceType<typeof DynamicBackground> | null>(null)
+const router = useRouter()
+let navCount = 0
+
+router.afterEach(() => {
+  navCount++
+  // Every 5 navigations, switch the background
+  if (navCount > 0 && navCount % 5 === 0) {
+    bgRef.value?.switchBackground()
+  }
+})
 </script>
 
 <style scoped>

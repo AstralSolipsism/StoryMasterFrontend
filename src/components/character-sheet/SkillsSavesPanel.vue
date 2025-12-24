@@ -2,7 +2,7 @@
   <div class="skills-saves-panel flex flex-col gap-4">
     
     <!-- Saving Throws Section -->
-    <div class="border border-stone-300 rounded p-2 bg-white/30">
+    <div class="border border-stone-300 rounded p-2 bg-white/20 backdrop-blur-sm">
       <h3 class="font-cinzel text-xs font-bold uppercase border-b border-stone-300 mb-2 pb-1 text-center">{{ t('characters.sheet.savings') }}</h3>
       <div class="flex flex-col gap-1">
         <div v-for="stat in statsList" :key="stat" class="flex items-center justify-between text-sm">
@@ -22,7 +22,7 @@
     </div>
 
     <!-- Skills Section -->
-    <div class="border border-stone-300 rounded p-2 bg-white/30 flex-grow">
+    <div class="border border-stone-300 rounded p-2 bg-white/20 backdrop-blur-sm flex-grow">
       <h3 class="font-cinzel text-xs font-bold uppercase border-b border-stone-300 mb-2 pb-1 text-center">{{ t('characters.sheet.skills') }}</h3>
       <div class="flex flex-col gap-1">
         <div v-for="skill in skillsList" :key="skill.key" class="flex items-center justify-between text-sm hover:bg-stone-200/50 px-1 rounded">
@@ -47,7 +47,7 @@
     </div>
 
     <!-- Passive Wisdom (Perception) -->
-    <div class="border border-stone-300 rounded p-2 bg-white/30 flex items-center justify-between">
+    <div class="border border-stone-300 rounded p-2 bg-white/20 backdrop-blur-sm flex items-center justify-between">
       <span class="font-bold text-xs uppercase text-stone-600">{{ t('characters.sheet.passivePerception') }}</span>
       <span class="font-lora font-bold text-xl text-ink-black">{{ calculatePassivePerception() }}</span>
     </div>

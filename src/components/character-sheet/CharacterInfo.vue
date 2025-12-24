@@ -1,5 +1,5 @@
 <template>
-  <div class="character-info p-4 border-2 border-stone-800 rounded-sm bg-parchment-light relative overflow-hidden">
+  <div class="character-info p-4 border-2 border-stone-800 rounded-sm bg-parchment-light paper-texture relative overflow-hidden">
     <div class="flex flex-col gap-4">
       
       <!-- Name Panel -->
@@ -18,7 +18,7 @@
       </div>
 
       <!-- Attributes Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 p-3 border-t border-b border-stone-400/50 bg-white/20">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 p-3 border-t border-b border-stone-400/50 bg-white/10 backdrop-blur-sm">
         
         <!-- Class & Level -->
         <div class="flex flex-col">

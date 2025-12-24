@@ -1,6 +1,6 @@
 <template>
   <div class="scripts-container">
-    <div class="paper-card min-h-[80vh] relative overflow-hidden">
+    <div class="paper-card min-h-[80vh] relative overflow-hidden bg-parchment-light/90 backdrop-blur-md">
       <!-- Decorative header -->
       <div class="border-b-2 border-ink-red mb-6 pb-2">
         <h2 class="text-3xl font-serif text-ink-red">{{ $t('scripts.title') }}</h2>
@@ -57,7 +57,7 @@
             <!-- Tab Content -->
             <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar relative">
                 <!-- Entity Detail Overlay -->
-                <div v-if="activeEntity" class="bg-parchment p-4 border border-ink-red/30 rounded mb-4 shadow-inner">
+                <div v-if="activeEntity" class="bg-parchment-light/95 backdrop-blur-sm p-4 border border-ink-red/30 rounded mb-4 shadow-inner relative z-10">
                      <div class="flex justify-between items-start">
                          <h3 class="text-xl text-ink-red font-bold mt-0">{{ activeEntity.name }} <span class="text-sm font-normal text-stone-500">({{ activeEntity.type }})</span></h3>
                          <button @click="activeEntityId = null" class="text-stone-400 hover:text-ink-red text-xl leading-none">&times;</button>
@@ -86,12 +86,12 @@
                 </div>
 
                  <!-- Tasks Tab -->
-                <div v-else-if="currentTab === 'tasks'">
-                     <div class="space-y-4">
-                        <div v-for="taskId in activeScript.tasks" :key="taskId" 
-                             class="p-3 border border-dashed border-stone-400 rounded bg-stone-50/50 hover:bg-stone-100 cursor-pointer"
-                             @click="selectEntity(taskId)">
-                            <div class="flex items-center">
+                 <div v-else-if="currentTab === 'tasks'">
+                      <div class="space-y-4">
+                         <div v-for="taskId in activeScript.tasks" :key="taskId"
+                              class="p-3 border border-dashed border-stone-400 rounded bg-stone-50/60 hover:bg-stone-100/60 cursor-pointer"
+                              @click="selectEntity(taskId)">
+                             <div class="flex items-center">
                                 <span class="w-4 h-4 border border-ink-black mr-3 rounded-sm"></span>
                                 <div class="font-bold text-ink-black">{{ mockEntities[taskId]?.name }}</div>
                             </div>

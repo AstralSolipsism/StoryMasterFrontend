@@ -1,0 +1,22 @@
+{
+  "id": "section-an-ju-wan-ju-ji-lu-yun-zai-ju-tack-harness-and-drawn-vehicles",
+  "title": "鞍具、挽具及陆运载具Tack, Harness, and Drawn Vehicles",
+  "type": "section",
+  "content": "# 鞍具、挽具及陆运载具Tack, Harness, and Drawn Vehicles\n\n#### 坐骑和其他动物 Mounts and Other Animals\n\n项目 价格 速度 载重\n骆驼 camel 50 gp 50 尺 480 磅\n驴 donkey 或骡 mule 8 gp 40 尺 420 磅\n象 elephant 200 gp 40 尺 1320 磅\n驮用马 draft horse 50 gp 40 尺 540 磅\n乘用马 riding horse 75 gp 60 尺 480 磅\n獒犬 mastiff 25 gp 40 尺 195 磅\n矮种马 pony 30 gp 40 尺 225 磅\n战马 warhorse 400 gp 60 尺 540 磅\n\n#### 鞍具、挽具及陆运载具 Tack, Harness, and Drawn\n\n**Vehicles**\n\n项目 价格 重量\n具装 barding ×4 ×2\n辔具 bit and bridle 2 gp 1 磅\n四轮客车 carriage 100 gp 600 磅\n二轮货车 cart 15 gp 200 磅\n二轮战车 chariot 250 gp 100 磅\n饲料 feed（每日份） 5 cp 10 磅\n鞍座 _saddle_\n特制 exotic 60 gp 40 磅\n军用 military 20 gp 30 磅\n驮役 pack 5 gp 15 磅\n骑乘 riding 10 gp 25 磅\n鞍囊 saddlebags 4 gp 8 磅\n木橇 sled 20 gp 300 磅\n马厩 stabling（每日租） 5 sp －\n四轮货车 wagon 35 gp 400 磅\n\n#### 水运载具 Waterborne Vehicles\n\n项目 价格 速度\n桨帆船 galley 30000 gp 4 mph\n龙骨船 keelboat 3000 gp 1 mph\n单帆长船 longship 10000 gp 3 mph\n划艇 rowboat 50 gp 1½ mph\n帆船 sailing ship 10000 gp 2 mph\n战舰 warship 25000 gp 2½ mph\n\n### 贸易商品 Trade Goods\n\n很多情况下，财富并不以货币的数量为衡量，而是以牲畜、\n\n谷物、土地、税权或者（矿或森林的）开采权等作评估。\n\n公会，贵族和皇室掌控着世界的贸易活动。那些获特许经\n\n营权的公司可以行走特殊的贸易路线，其商船可以特许进港，\n\n或者获许买卖特定的商品。公会则会为他们控制的商品或服务\n\n进行定价，并决定谁可以或不可提供它们。市场上，商人常常\n\n不使用货币而直接以物易物。部分商品价格列举在表格“贸易\n\n商品”中。\n\n### 贸易商品 Trade Goods\n\n价格 商品\n1 cp 1 磅小麦 wheat\n2 cp 1 磅面粉 flour 或 1 只鸡 chicken\n5 cp 1 磅盐 salt\n1 sp 1 磅铁 iron 或 1 平方码帆布 canvas\n5 sp 1 磅铜 copper 或 1 平方码棉布 cotton cloth\n1 gp 1 磅姜 ginger 或 1 头山羊 goat\n2 gp 1 磅肉桂 cinnamon 或胡椒 pepper 或 1 头绵羊 sheep\n3 gp 1 磅丁香 cloves 或 1 头猪 pig\n5 gp 1 磅白银 silver 或 1 平方码亚麻 linen\n10 gp 1 平方码丝绸 silk 或 1 头奶牛 cow\n15 gp 1 磅藏红花 saffron 或 1 头公牛 ox\n50 gp 1 磅黄金 gold\n500 gp 1 磅铂金 platinum\n\n### 开支 Expenses\n\n当未前去深入地底，探寻宝藏，或勇战黑暗势力时，冒险\n\n者们也需要面对现实生活。即便时在这个神奇的世界中，人们\n\n也有衣食住的基本需求。而这些生活的花费也存在穷奢之分。\n\n#### 生活开支 Lifestyle Expenses\n\n这里所述的生活开支，是计算 D&D 世界生活方式的一种\n\n简便方法。它包括了角色的衣食住行花费，以及除此以外的装\n\n备维护费用，以让你随时准备好响应冒险的呼召。\n\n在每周或每月开始时，你从“生活开支”表中自选一种生\n\n活方式，并支付相应的金额取维持生活。列表中的价格为每日\n\n的开支，因此如果你是每三十日进行结算时则需要乘以 30。根\n\n据你自身资金的状况，你可以每个时段过不同方式的生活，也\n\n可以在整段冒险生涯中维持同一种生活方式。\n\n不同的生活方式也会对你产生不同的影响。维持富泰的生\n\n活可以结识其他权贵，但也可能招致盗贼光顾。而保持俭朴的\n\n生活可以避开罪犯，却无法获得更好的人脉资源。\n\n#### 生活开支 Lifestyle Expenses\n\n生活方式 每日支出\n乞食 wretched －\n流浪 squalid 1 sp\n穷困 poor 2 sp\n俭朴 modest 1 gp\n舒适 comfortable 2 gp\n富裕 wealthy 4 gp\n奢华 aristocratic 至少 10 gp",
+  "order": 694,
+  "prevId": "section-zuo-qi-he-qi-ta-dong-wu-mounts-and-other-animals",
+  "nextId": "section-shui-yun-zai-ju-waterborne-vehicles",
+  "relatedEntities": [],
+  "parentId": "section-zuo-qi-yu-zai-ju-mounts-and-vehicles",
+  "_meta": {
+    "sourceFile": "5eDnD_玩家手册PHB_中译v1.72版.pdf",
+    "pageRange": [
+      157,
+      157
+    ],
+    "pageStart": 157,
+    "pageEnd": 157,
+    "extractedAt": "2025-12-25T06:44:10.688518+00:00",
+    "extractorVersion": "1.0.0"
+  }
+}

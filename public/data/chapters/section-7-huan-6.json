@@ -1,0 +1,22 @@
+{
+  "id": "section-7-huan-6",
+  "title": "7环",
+  "type": "section",
+  "content": "# 7环\n\n### 法术详述 Spell Descriptions\n\n法术按头字母在字母表中的顺序排列。\n\n#### 酸液飞溅 Acid Splash\n\n咒法 戏法\n\n施法时间：1 动作\n施法距离：60 尺\n法术成分：V、S\n持续时间：立即\n\n你掷出一颗酸液球。在施法距离内指定一个你能看见的生\n\n物，或者在施法距离内指定你能看见的两个相距不超过 5 尺的\n\n生物。每个目标必须进行一次敏捷豁免，豁免失败则受到 1d6\n\n点强酸伤害。\n\n你到达 5 级时，该法术的伤害增加 1d6（变为 2d6）。11 级\n\n时再加 1d6（变为 3d6），17 级时再加 1d6（变为 4d6）。\n\n#### 援助术 Aid\n\n_2_ 环 防护\n\n施法时间：1 动作\n施法距离：30 尺\n法术成分：V、S、M（一小片白布）\n持续时间：8 小时\n\n你的法术增强了盟友的韧性和毅力。在施法距离内指定至\n\n多三个生物。每个目标的生命值上限和当前生命值在法术持续\n\n时间内提高 5 点。\n\n升环施法效应。使用 3 环或更高法术位施展该法术时，你\n\n使用的法术位每比 2 环高一环，每个目标的生命值上限和当前\n\n生命值就额外提高 5 点。\n\n#### 警报术 Alarm\n\n_1_ 环 防护（仪式）\n\n施法时间：1 分钟\n施法距离：30 尺\n法术成分：V、S、M（一个小铃铛和一小段银线）\n持续时间：8 小时\n\n你针对不速之客设置一个警报。在施法距离内指定一扇门\n\n窗或选择一个边长不大于 20 尺的立方区域。在法术持续时间\n\n内，任何触碰或进入目标区域的微型或更大体型生物都会触发\n\n警报。施法时，你可以决定哪些生物不会触发警报，还可以选\n\n择警报方式为声音警报或是精神警报。\n\n如果你选择精神警报，且警报触发时你距离目标区域不超\n\n过 1 里，则你的意念里会传来“乒”的警报声。如果你在睡觉，\n\n则警报将使你惊醒。\n\n如果你选择声音警报，则警报触发时其 60 尺范围内将响\n\n起持续 10 秒摇铃声。\n\n#### 变身术 Alter Self\n\n_2_ 环 变化\n\n施法时间：1 动作\n施法距离：自身\n法术成分：V，S\n持续时间：专注，至多 1 小时\n\n摩登肯私人密室 Mordenkainen’s\n\nPrivate Sanctum\n\n欧提路克弹力法球 Otiluke’s\n\nResilient Sphere\n\n魅影杀手 Phantasmal Killer\n\n变形术 Polymorph\n\n塑石术 Stone Shape\n\n石肤术 Stoneskin\n\n火墙术 Wall of Fire\n\n#### 5 环\n\n活化物件 Animate Objects\n\n毕格比之手 Bigby’s Hand\n\n死云术 Cloudkill\n\n寒冰锥 Cone of Cold\n\n召唤元素生物 Conjure Elemental\n\n异界探知 Contact Other Plane\n\n造物术 Creation\n\n支配人类 Dominate Person\n\n托梦术 Dream\n\n指使术 Geas\n\n怪物定身术 Hold Monster\n\n通晓传奇 Legend Lore\n\n假象术 Mislead\n\n篡改记忆 Modify Memory\n\n穿墙术 Passwall\n\n异界誓缚 Planar Binding\n\n拉瑞心灵联结 Rary’s Telepathic\n\nBond\n\n探知 Scrying\n\n伪装术 Seeming\n\n心灵遥控 Telekinesis\n\n传送法阵 Teleportation Circle\n\n力场墙 Wall of Force\n\n石墙术 Wall of Stone\n\n#### 6 环\n\n秘法门 Arcane Gate\n\n连锁闪电 Chain Lightning\n\n死亡法阵 Circle of Death\n\n触发术 Contingency\n\n唤起死灵 Create Undead\n\n解离术 Disintegrate\n\n卓姆吉瞬间召唤 Drawmij’s Instant\n\nSummons\n\n摄心目光 Eyebite\n\n石化术 Flesh to Stone\n\n法术无效结界 Globe of\n\nInvulnerability\n\n铜墙铁壁 Guards and Wards\n\n魔魂壶 Magic Jar\n\n群体暗示术 Mass Suggestion\n\n地动术 Move Earth\n\n欧提路克冰封法球 Otiluke’s\n\nFreezing Sphere\n\n奥图迷舞 Otto’s Irresistible Dance\n\n预置幻影 Programmed Illusion\n\n阳炎射线 Sunbeam\n\n真知术 True Seeing\n\n冰墙术 Wall of Ice\n\n#### 7 环\n\n延迟爆裂火球 Delayed Blast\n\nFireball\n\n以太化 Etherealness\n\n死亡一指 Finger of Death\n\n魔力监牢 Forcecage\n\n海市蜃楼 Mirage Arcane\n\n摩登肯豪宅术 Mordenkainen’s\n\nMagnificent Mansion\n\n摩登肯之剑 Mordenkainen’s Sword\n\n异界传送 Plane Shift\n\n虹光喷射 Prismatic Spray\n\n投影术 Project Image\n\n反重力 Reverse Gravity\n\n隔离术 Sequester\n\n拟像术 Simulacrum\n\n魔法徽记 Symbol\n\n传送术 Teleport\n\n#### 8 环\n\n反魔法力场 Antimagic Field\n\n嫌恶/关怀术 Antipathy/Sympathy\n\n克隆术 Clone\n\n操控天气 Control Weather\n\n创造半位面 Demiplane\n\n支配怪物 Dominate Monster\n\n弱智术 Feeblemind\n\n焚云术 Incendiary Cloud\n\n迷宫术 Maze\n\n心灵屏障 Mind Blank\n\n律令震慑 Power Word Stun\n\n阳炎爆 Sunburst\n\n心灵感应 Telepathy\n\n#### 9 环\n\n星界投影 Astral Projection\n\n预警术 Foresight\n\n异界之门 Gate\n\n禁锢术 Imprisonment\n\n流星爆 Meteor Swarm\n\n律令死亡 Power Word Kill\n\n虹光法墙 Prismatic Wall\n\n形体变化 Shapechange\n\n时间停止 Time Stop\n\n完全变形术 True Polymorph\n\n怪影杀手 Weird\n\n祈愿术 Wish",
+  "order": 958,
+  "prevId": "section-6-huan-6",
+  "nextId": "section-8-huan-6",
+  "relatedEntities": [],
+  "parentId": "section-fa-shi-fa-shu-wizard-spells",
+  "_meta": {
+    "sourceFile": "5eDnD_玩家手册PHB_中译v1.72版.pdf",
+    "pageRange": [
+      211,
+      211
+    ],
+    "pageStart": 211,
+    "pageEnd": 211,
+    "extractedAt": "2025-12-25T06:44:10.818996+00:00",
+    "extractorVersion": "1.0.0"
+  }
+}

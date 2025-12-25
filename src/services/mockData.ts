@@ -12,7 +12,9 @@ export interface Entity {
 export interface BookNode {
   id: string;
   title: string;
-  type: 'chapter' | 'section' | 'table';
+  type: 'book' | 'chapter' | 'section' | 'table';
+  pageStart?: number;
+  pageEnd?: number;
   children?: BookNode[];
   parentId?: string;
 }
@@ -23,6 +25,7 @@ export interface ChapterContent extends BookNode {
   prevId?: string;
   nextId?: string;
   relatedEntities: string[]; // IDs of related entities
+  _meta?: Record<string, unknown>;
 }
 
 // For Scripts scenarios, keeping a simple structure similar to the old Chapter

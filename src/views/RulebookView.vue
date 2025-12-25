@@ -43,7 +43,7 @@
         </div>
         <div class="flex-grow overflow-y-auto p-4 custom-scrollbar bg-[#1c110a]">
           <CatalogTree
-            :nodes="mockCatalog"
+            :nodes="catalogNodes"
             :activeId="activeContentId"
             @select="handleContentSelect"
           />
@@ -56,7 +56,7 @@
           v-if="showWidePanels"
           class="widescreen-left-panel h-full overflow-hidden flex flex-col p-4">
           <ScrollableCatalogWrapper
-            :nodes="mockCatalog"
+            :nodes="catalogNodes"
             :activeId="activeContentId"
             :title="$t('rulebook.title')"
             :height="'calc(100% - 16px)'"
@@ -158,7 +158,8 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue';
 import { mockCatalog, mockChapterContent, mockEntities } from '../services/mockData';
-import type { BookNode, Entity } from '../services/mockData';
+import type { BookNode, ChapterContent, Entity } from '../services/mockData';
+import { loadCatalog, loadChapterContent } from '../services/rulebookDataService';
 import CatalogTree from '../components/CatalogTree.vue';
 import MarkdownRenderer from '../components/MarkdownRenderer.vue';
 import { ScrollableCatalogWrapper, DeskScatterLayout } from '../components/rulebook-desk-items';
@@ -256,6 +257,18 @@ const contentContainer = ref<HTMLElement | null>(null);
 const bookContainer = ref<HTMLElement | null>(null);
 const cursorStyle = ref('auto');
 
+/** 当前目录树（优先真实数据，失败时回退到 mock） */
+const catalogNodes = ref<BookNode[]>([]);
+/** 运行时加载到的真实章节内容（按需加载，避免一次性拉取全部 JSON） */
+const runtimeChapterContentMap = ref<Record<string, ChapterContent>>({});
+/** 是否正在使用 mock 目录回退（用于语言切换时同步刷新目录） */
+const isMockCatalogFallback = ref(false);
+
+const getContentById = (id: string): ChapterContent | undefined => {
+  if (!id) return undefined;
+  return runtimeChapterContentMap.value[id] ?? mockChapterContent.value[id];
+};
+
 const debugRulebook = import.meta.env.DEV;
 
 const logRulebookState = (label: string, extra: Record<string, unknown> = {}) => {
@@ -292,6 +305,26 @@ const logRulebookState = (label: string, extra: Record<string, unknown> = {}) =>
 onMounted(async () => {
   await nextTick();
   logRulebookState('mounted');
+
+  // 组件挂载后加载真实目录（失败则回退到 mock）
+  try {
+    const catalogRoot = await loadCatalog();
+    catalogNodes.value = [catalogRoot];
+    isMockCatalogFallback.value = false;
+  } catch (e) {
+    console.warn('[Rulebook] loadCatalog 失败，回退到 mock 目录', e);
+    catalogNodes.value = mockCatalog.value;
+    isMockCatalogFallback.value = true;
+  }
+
+  // 初始化默认选中项，并按需加载对应章节内容
+  if (!activeContentId.value || !getContentById(activeContentId.value)) {
+    initSelection();
+  }
+
+  if (activeContentId.value) {
+    await handleContentSelect(activeContentId.value);
+  }
 });
 
 // ========== 翻页交互 ==========
@@ -400,35 +433,39 @@ const prevPage = () => {
 // ========== 内容选择逻辑 ==========
 // 初始化选择第一个章节
 const initSelection = () => {
-  if (mockCatalog.value.length > 0) {
-    const firstRoot = mockCatalog.value[0];
-    if (firstRoot && firstRoot.children && firstRoot.children.length > 0) {
-      const firstChild = firstRoot.children[0];
-      if (firstChild) {
-        if (firstChild.children && firstChild.children.length > 0&& firstChild.children[0]) {
-          activeContentId.value = firstChild.children[0].id;
-        } else {
-          activeContentId.value = firstChild.id;
-        }
-      } else {
-        activeContentId.value = firstRoot.id;
-      }
-    } else if (firstRoot) {
-      activeContentId.value = firstRoot.id;
-    }
-  }
-};
-initSelection();
+  const root = catalogNodes.value[0];
+  if (!root) return;
 
-// 语言变化时重新初始化
+  // 优先跳过 book 根节点，选择第一个可阅读的子节点
+  let current: BookNode = root;
+  if (current.type === 'book') {
+    const firstChild: BookNode | undefined = current.children?.[0];
+    if (!firstChild) return;
+    current = firstChild;
+  }
+
+  // 兼容深层目录：一路取第一个子节点直到叶子
+  while (current.children && current.children.length > 0) {
+    const nextNode: BookNode | undefined = current.children[0];
+    if (!nextNode) break;
+    current = nextNode;
+  }
+
+  activeContentId.value = current.id;
+};
+
+// 语言变化时：仅在使用 mock 回退时同步目录与选中项
 watch(mockCatalog, () => {
-  if (!activeContentId.value || !mockChapterContent.value[activeContentId.value]) {
+  if (!isMockCatalogFallback.value) return;
+
+  catalogNodes.value = mockCatalog.value;
+  if (!activeContentId.value || !getContentById(activeContentId.value)) {
     initSelection();
   }
 });
 
 const currentContent = computed(() => {
-  return mockChapterContent.value[activeContentId.value];
+  return getContentById(activeContentId.value);
 });
 
 watch(currentContent, async () => {
@@ -448,13 +485,13 @@ const breadcrumbs = computed(() => {
   while (current) {
     crumbs.unshift({ id: current.id, title: current.title });
     if (current.parentId) {
-      const parentInMap = mockChapterContent.value[current.parentId];
+      const parentInMap = getContentById(current.parentId);
       if (parentInMap) {
         current = parentInMap;
       } else {
-        const parentNode = findNodeById(mockCatalog.value, current.parentId);
+        const parentNode = findNodeById(catalogNodes.value, current.parentId);
         if (parentNode) {
-          current = { ...parentNode, content: '', order: 0, relatedEntities: [] } as any;
+          current = { ...parentNode, content: '', order: 0, relatedEntities: [] } as ChapterContent;
         } else {
           break;
         }
@@ -477,13 +514,47 @@ const findNodeById = (nodes: BookNode[], id: string): BookNode | undefined => {
   return undefined;
 };
 
-const handleContentSelect = (id: string) => {
-  if (mockChapterContent.value[id]) {
-    activeContentId.value = id;
-    // 选择后关闭侧边栏
-    isSidebarOpen.value = false;} else {
-    console.log("Selected node without content:", id);
+const handleContentSelect = async (id: string) => {
+  if (!id) return;
+  activeContentId.value = id;
+  // 选择后关闭侧边栏
+  isSidebarOpen.value = false;
+ 
+  // 已经有内容（真实或 mock）则无需重复加载
+  if (getContentById(id)) return;
+ 
+  try {
+    const content = await loadChapterContent(id);
+    if (content) {
+      runtimeChapterContentMap.value[id] = content;
+      return;
+    }
+  } catch (e) {
+    console.warn('[Rulebook] loadChapterContent 失败，回退到 mock 内容', { id, e });
   }
+ 
+  // 真实内容未包含且 mock 也没有：给出可读的提示信息（避免空白）
+  const node = findNodeById(catalogNodes.value, id);
+  const title = node?.title || id;
+ 
+  runtimeChapterContentMap.value[id] = {
+    id,
+    title,
+    type: node?.type ?? 'section',
+    parentId: node?.parentId,
+    pageStart: node?.pageStart,
+    pageEnd: node?.pageEnd,
+    order: 0,
+    relatedEntities: [],
+    content: `# ${title}
+ 
+未找到该章节的内容数据（可能尚未复制到前端 public 目录）。
+ 
+- chapterId: ${id}
+- 期望路径: /data/chapters/${id}.json
+ 
+请将对应 JSON 文件复制到 dnd-ai-frontend/public/data/chapters/ 目录后重试。`,
+  };
 };
 
 // ========== 宽屏模式：右侧散落区数据 ==========
@@ -498,18 +569,27 @@ const showRightToc = computed(() => {
 const extractHeadingsFromMarkdown = (markdown: string): TocHeading[] => {
   const headings: TocHeading[] = [];
   const lines = markdown.split('\n');
-  
+ 
+  // 与 MarkdownRenderer 中的 markdown-it-anchor slugify 保持一致
+  const slugify = (s: string) => s.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-');
+  const slugCounts: Record<string, number> = {};
+  const uniqueSlugStartIndex = 1;
+ 
   for (const line of lines) {
     const match = line.match(/^(#{1,6})\s+(.+)$/);
-    if (match && match[1] && match[2]) {
-      const level = match[1].length;
-      const text = match[2].trim();
-      // 生成锚点ID（简化处理：转小写，空格变连字符）
-      const id = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
-      headings.push({ level, text, id });
-    }
+    if (!match || !match[1] || !match[2]) continue;
+ 
+    const level = match[1].length;
+    const text = match[2].trim();
+ 
+    const base = slugify(text) || 'section';
+    const seen = slugCounts[base] ?? 0;
+    const id = seen === 0 ? base : `${base}-${seen - 1 + uniqueSlugStartIndex}`;
+    slugCounts[base] = seen + 1;
+ 
+    headings.push({ level, text, id });
   }
-  
+ 
   return headings;
 };
 
@@ -541,11 +621,12 @@ const currentEntities = computed((): Entity[] => {
  * 处理目录大纲点击 - 滚动到对应标题
  */
 const handleTocSelect = (heading: TocHeading) => {
-  if (heading.id && contentContainer.value) {
-    const headingEl = contentContainer.value.querySelector(`#${heading.id}`);
-    if (headingEl) {
-      headingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  if (!heading.id || !contentContainer.value) return;
+ 
+  // 使用属性选择器，避免 ID 以数字开头导致 `#id` 选择器失效
+  const headingEl = contentContainer.value.querySelector(`[id="${heading.id}"]`);
+  if (headingEl) {
+    headingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
 

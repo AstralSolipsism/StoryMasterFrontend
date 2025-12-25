@@ -9,6 +9,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUpdated, onBeforeUnmount, ref, createApp } from 'vue';
 import MarkdownIt from 'markdown-it';
+import anchor from 'markdown-it-anchor';
 import tippy, { type Instance } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
@@ -22,10 +23,19 @@ const props = defineProps<{
 const containerRef = ref<HTMLElement | null>(null);
 let tippyInstances: Instance[] = [];
 
+/**
+ * 为标题生成稳定锚点（用于右侧 TOC 跳转）
+ * - 允许中文字符进入 slug
+ */
+const slugify = (s: string) => s.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-');
+
 const md = new MarkdownIt({
   html: true,
   breaks: true,
-  typographer: true
+  typographer: true,
+}).use(anchor, {
+  permalink: false,
+  slugify,
 });
 
 const renderedContent = computed(() => {

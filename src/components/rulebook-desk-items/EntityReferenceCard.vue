@@ -1,16 +1,16 @@
 <template>
-  <div 
-    class="entity-card relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl"
+  <div
+    class="entity-card glass-panel-sm glass-hover relative overflow-hidden cursor-pointer transition-all duration-300"
     :style="{ transform: `rotate(${rotation}deg)` }":class="[typeClasses]"
     @click="handleClick"
   >
     <!-- 卡片边框装饰 -->
-    <div class="absolute inset-0 border-4 rounded-lg pointer-events-none" :class="borderColorClass"></div>
+    <div class="absolute inset-0 border-2 rounded-xl pointer-events-none" :class="borderColorClass"></div>
     
     <!-- 卡片背景纹理 -->
-    <div 
+    <div
       class="absolute inset-0 opacity-20 pointer-events-none"
-      style="background-image: url('@/assets/images/parchment-color.png'); background-size:150px;"
+      style="background-image: none;"
     ></div>
     
     <!-- 顶部类型标签 -->
@@ -134,18 +134,7 @@ const typeLabel = computed(() => {
 /**
  * 根据类型返回整体样式类
  */
-const typeClasses = computed(() => {
-  const baseClasses: Record<string, string> = {
-    'Spell': 'bg-gradient-to-b from-indigo-50 to-purple-50',
-    'Monster': 'bg-gradient-to-b from-red-50 to-orange-50',
-    'Item': 'bg-gradient-to-b from-amber-50 to-yellow-50',
-    'Rule': 'bg-gradient-to-b from-stone-50 to-slate-50',
-    'Location': 'bg-gradient-to-b from-green-50 to-emerald-50',
-    'Character': 'bg-gradient-to-b from-blue-50 to-cyan-50',
-    'Task': 'bg-gradient-to-b from-orange-50 to-amber-50'
-  };
-  return baseClasses[props.entity.type] || 'bg-gradient-to-b from-gray-50 to-slate-50';
-});
+const typeClasses = computed(() => '');
 
 /**
  * 边框颜色类
@@ -224,19 +213,6 @@ const handleClick = () => {
   /* 卡片尺寸 */
   width: 140px;
   min-height: 180px;
-  /*圆角 */
-  border-radius: 8px;
-  /*卡片阴影 - 模拟纸牌堆叠效果 */
-  box-shadow: 
-    2px 3px 8px rgba(0, 0, 0, 0.12),
-    1px 1px 4px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.entity-card:hover {
-  box-shadow: 
-    4px 6px 16px rgba(0, 0, 0, 0.2),
-    2px 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 /* 文本截断 */

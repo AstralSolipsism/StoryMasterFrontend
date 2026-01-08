@@ -1,12 +1,12 @@
 <template>
-  <div 
-    class="toc-card relative bg-amber-50 shadow-lg rounded-sm overflow-hidden"
+  <div
+    class="toc-card glass-panel-sm relative overflow-hidden"
     :style="{ transform: `rotate(${rotation}deg)` }"
   >
     <!-- 便签纸纹理背景 -->
-    <div 
+    <div
       class="absolute inset-0 opacity-30 pointer-events-none"
-      style="background-image: url('@/assets/images/parchment-color.png'); background-size:200px;"></div>
+      style="background-image: none;"></div>
     
     <!-- 便签顶部装饰条 - 模拟胶带效果 -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-amber-200/60 -translate-y-1shadow-sm"></div>
@@ -100,20 +100,6 @@ const handleClick = (item: TocHeading) => {
 
 <style scoped>
 .toc-card {
-  /* 便签纸颜色 - 略带泛黄 */
-  background: linear-gradient(
-    to bottom,
-    #fef9e7 0%,
-    #fdf6e3 50%,
-    #fbefd5 100%
-  );
-  /*纸张阴影 */
-  box-shadow: 
-    2px 3px 8px rgba(0, 0, 0, 0.15),
-    1px 1px 3px rgba(0, 0, 0, 0.1),
-    inset 0 0 30px rgba(139, 69, 19, 0.03);
-  /* 纸张边缘微微不规则 */
-  border: 1px solid rgba(139, 90, 43, 0.15);
 }
 
 /* 手写字体样式 */

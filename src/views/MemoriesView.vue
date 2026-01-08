@@ -1,18 +1,18 @@
 <template>
   <div class="memories-view">
-    <header class="page-header bg-stone-100/80 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-stone-200 inline-block mx-auto mb-8">
+    <header class="page-header glass-panel-sm p-4 inline-block mx-auto mb-8">
       <h1>{{ $t('memories.title') }}</h1>
       <p class="subtitle">{{ $t('memories.subtitle') }}</p>
     </header>
 
     <div class="memories-container">
       <!-- Campaign List (Sidebar) -->
-      <aside class="campaign-list backdrop-blur-md">
+      <aside class="campaign-list glass-panel-md">
         <h2>{{ $t('memories.chronicles') }}</h2>
         <div
           v-for="campaign in campaigns"
           :key="campaign.id"
-          class="campaign-card"
+          class="campaign-card glass-panel-sm"
           :class="{ active: selectedCampaign?.id === campaign.id, finished: campaign.status === 'finished' }"
           @click="selectCampaign(campaign)"
         >
@@ -25,19 +25,19 @@
       </aside>
 
       <!-- Details & Visualization (Main) -->
-      <main class="campaign-details backdrop-blur-md" v-if="selectedCampaign">
+      <main class="campaign-details glass-panel-md" v-if="selectedCampaign">
         <div class="details-header">
           <h2>{{ selectedCampaign.title }}</h2>
           <div class="stats-row">
-            <div class="stat-box">
+            <div class="stat-box glass-panel-sm glass-panel-dark">
               <span class="stat-value">{{ selectedCampaign.partyLevel }}</span>
               <span class="stat-label">{{ $t('memories.partyLevel') }}</span>
             </div>
-            <div class="stat-box">
+            <div class="stat-box glass-panel-sm glass-panel-dark">
               <span class="stat-value">{{ selectedCampaign.playTime }}h</span>
               <span class="stat-label">{{ $t('memories.playTime') }}</span>
             </div>
-            <div class="stat-box">
+            <div class="stat-box glass-panel-sm glass-panel-dark">
               <span class="stat-value">{{ selectedCampaign.encounters }}</span>
               <span class="stat-label">{{ $t('memories.encounters') }}</span>
             </div>
@@ -54,7 +54,7 @@
               class="timeline-item"
             >
               <div class="timeline-marker"></div>
-              <div class="timeline-content backdrop-blur-sm">
+              <div class="timeline-content glass-panel-sm">
                 <span class="event-date">{{ $t('memories.timelineSession') }} {{ event.session }}</span>
                 <h4>{{ event.title }}</h4>
                 <p>{{ event.description }}</p>
@@ -64,7 +64,7 @@
         </div>
       </main>
 
-      <div class="empty-state backdrop-blur-sm" v-else>
+      <div class="empty-state glass-panel-md" v-else>
         <p>{{ $t('memories.noCampaignSelected') }}</p>
       </div>
     </div>
@@ -175,13 +175,9 @@ h1 {
 /* Sidebar */
 .campaign-list {
   width: 300px;
-  background: rgba(255, 252, 240, 0.85);
-  border: 1px solid #8d6e63;
-  border-radius: 8px;
   padding: 1rem;
   overflow-y: auto;
   flex-shrink: 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .campaign-list h2 {
@@ -193,11 +189,8 @@ h1 {
 }
 
 .campaign-card {
-  background: rgba(255, 248, 225, 0.8);
-  border: 1px solid #d7ccc8;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
@@ -205,14 +198,14 @@ h1 {
 
 .campaign-card:hover {
   transform: translateX(5px);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-color: #8d6e63;
+  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 248, 240, 0.45);
 }
 
 .campaign-card.active {
-  background: rgba(239, 235, 233, 0.9);
+  --_glass-bg: rgba(255, 248, 240, 0.4);
+  --_glass-border: rgba(255, 248, 240, 0.45);
   border-left: 5px solid #d84315;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .campaign-card.finished {
@@ -261,12 +254,8 @@ h1 {
 /* Main Content */
 .campaign-details {
   flex-grow: 1;
-  background: rgba(255, 252, 240, 0.9);
-  border: 1px solid #8d6e63;
-  border-radius: 8px;
   padding: 2rem;
   overflow-y: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15), inset 0 0 40px rgba(161, 136, 127, 0.2);
   display: flex;
   flex-direction: column;
 }
@@ -291,10 +280,8 @@ h1 {
 }
 
 .stat-box {
-  background: #5d4037;
   color: #efebe9;
   padding: 0.8rem 1.5rem;
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -359,12 +346,8 @@ h1 {
 }
 
 .timeline-content {
-  background: rgba(255, 248, 225, 0.9);
-  border: 1px solid #d7ccc8;
   padding: 1rem;
-  border-radius: 4px;
   position: relative;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .timeline-content::before {
@@ -376,7 +359,7 @@ h1 {
   height: 0;
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
-  border-right: 8px solid #d7ccc8;
+  border-right: 8px solid var(--_glass-border, rgba(255, 248, 240, 0.3));
 }
 
 .event-date {
@@ -406,9 +389,5 @@ h1 {
   font-family: 'Cinzel', serif;
   font-size: 1.5rem;
   color: #8d6e63;
-  border: 2px dashed #8d6e63;
-  border-radius: 8px;
-  background: rgba(255, 252, 240, 0.5);
-  box-shadow: inset 0 0 20px rgba(161, 136, 127, 0.1);
 }
 </style>

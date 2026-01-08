@@ -3,7 +3,7 @@
     <!-- Row 1: AC, Initiative, Speed -->
     <div class="grid grid-cols-3 gap-4">
       <!-- Armor Class -->
-      <div class="stat-box flex flex-col items-center justify-center p-2 border-2 border-[var(--color-border)] rounded-lg bg-white/40 backdrop-blur-sm relative shadow-sm">
+      <div class="stat-box flex flex-col items-center justify-center p-2 glass-panel-sm relative">
         <div class="text-[0.65rem] uppercase tracking-wide font-bold mb-1 text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.armorClass') }}</div>
         <div v-if="!isEditing" class="text-3xl font-cinzel font-bold text-[var(--color-text-highlight)]">{{ character.ac }}</div>
         <input v-else type="number" v-model.number="character.ac" class="w-12 text-center text-2xl font-cinzel font-bold bg-transparent border-b border-[var(--color-border)] focus:outline-none focus:border-[var(--color-primary)] transition-colors" />
@@ -13,13 +13,13 @@
       </div>
 
       <!-- Initiative -->
-      <div class="stat-box flex flex-col items-center justify-center p-2 border-2 border-[var(--color-border)] rounded-lg bg-white/40 backdrop-blur-sm shadow-sm">
+      <div class="stat-box flex flex-col items-center justify-center p-2 glass-panel-sm">
         <div class="text-[0.65rem] uppercase tracking-wide font-bold mb-1 text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.initiative') }}</div>
         <div class="text-3xl font-cinzel font-bold">{{ initiativeDisplay }}</div>
       </div>
 
       <!-- Speed -->
-      <div class="stat-box flex flex-col items-center justify-center p-2 border-2 border-[var(--color-border)] rounded-lg bg-white/40 backdrop-blur-sm shadow-sm">
+      <div class="stat-box flex flex-col items-center justify-center p-2 glass-panel-sm">
         <div class="text-[0.65rem] uppercase tracking-wide font-bold mb-1 text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.speed') }}</div>
         <div v-if="!isEditing" class="text-3xl font-cinzel font-bold">{{ character.speed }}</div>
         <div v-else class="flex items-center justify-center">
@@ -30,7 +30,7 @@
     </div>
 
     <!-- Row 2: HP -->
-    <div class="hp-box border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm shadow-sm relative group">
+    <div class="hp-box glass-panel-md p-3 relative group">
       <div class="flex justify-between items-center mb-2">
         <div class="text-xs uppercase font-bold text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.hitPoints') }}</div>
         <div class="text-xs text-[var(--color-text-secondary)] font-mono">{{ t('characters.sheet.combat.max') }}: {{ character.hp.max }}</div>
@@ -75,7 +75,7 @@
     <!-- Row 3: Hit Dice & Death Saves -->
     <div class="grid grid-cols-2 gap-4">
         <!-- Hit Dice -->
-        <div class="stat-box border-2 border-[var(--color-border)] rounded-lg p-2 bg-white/40 backdrop-blur-sm flex flex-col items-center justify-center shadow-sm">
+        <div class="stat-box glass-panel-sm p-2 flex flex-col items-center justify-center">
             <div class="text-[0.65rem] uppercase tracking-wide font-bold mb-1 text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.hitDice') }}</div>
             <div class="text-sm text-[var(--color-text-secondary)]">
                 {{ t('characters.sheet.combat.total') }}: <span class="font-semibold text-[var(--color-text-primary)]">{{ character.hitDice.total }}</span>
@@ -90,7 +90,7 @@
         </div>
 
         <!-- Death Saves -->
-        <div class="stat-box border-2 border-[var(--color-border)] rounded-lg p-2 bg-white/40 backdrop-blur-sm flex flex-col justify-center gap-2 shadow-sm">
+        <div class="stat-box glass-panel-sm p-2 flex flex-col justify-center gap-2">
             <div class="text-[0.65rem] uppercase tracking-wide font-bold text-center text-[var(--color-text-secondary)]">{{ t('characters.sheet.combat.deathSaves') }}</div>
             
             <div class="flex items-center justify-between px-1 text-xs">

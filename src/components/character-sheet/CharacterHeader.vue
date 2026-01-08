@@ -1,5 +1,5 @@
 <template>
-  <div class="character-header p-4 border-2 border-stone-800 rounded-sm bg-parchment-light paper-texture relative overflow-hidden">
+  <div class="character-header p-4 border-2 border-stone-800 rounded-sm bg-parchment-light relative overflow-hidden">
     <!-- Decorative border corners/elements could be added here -->
     
     <div class="flex flex-col gap-4">

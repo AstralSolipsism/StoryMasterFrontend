@@ -2,9 +2,9 @@
   <div class="catalog-tree text-stone-300">
     <div v-for="node in nodes" :key="node.id">
       <div
-        class="node-label flex items-center cursor-pointer py-1 px-2 hover:bg-white/10 hover:text-stone-100 rounded-sm transition-all duration-200 mb-1"
+        class="node-label flex items-center cursor-pointer py-1 px-2 hover:bg-white/10 hover:text-stone-100 !rounded-sm transition-all duration-200 mb-1 glass-panel-sm glass-panel-dark !shadow-none"
         :class="{
-          'text-amber-400 font-bold bg-white/5 shadow-sm': activeId === node.id,
+          'text-amber-400 font-bold !bg-white/10 !border-amber-500/30': activeId === node.id,
           'text-stone-200 font-semibold': node.children &&  depth === 0
         }"
         :style="{ paddingLeft: `${depth * 16 + 8}px` }"

@@ -1,6 +1,6 @@
 <template>
   <div class="scripts-container">
-    <div class="paper-card min-h-[80vh] relative overflow-hidden bg-parchment-light/90 backdrop-blur-md">
+    <div class="paper-card glass-panel-md min-h-[80vh] relative overflow-hidden">
       <!-- Decorative header -->
       <div class="border-b-2 border-ink-red mb-6 pb-2">
         <h2 class="text-3xl font-serif text-ink-red">{{ $t('scripts.title') }}</h2>
@@ -57,7 +57,7 @@
             <!-- Tab Content -->
             <div class="flex-grow overflow-y-auto pr-2 custom-scrollbar relative">
                 <!-- Entity Detail Overlay -->
-                <div v-if="activeEntity" class="bg-parchment-light/95 backdrop-blur-sm p-4 border border-ink-red/30 rounded mb-4 shadow-inner relative z-10">
+                <div v-if="activeEntity" class="glass-panel-sm p-4 !border-ink-red/30 mb-4 relative z-10">
                      <div class="flex justify-between items-start">
                          <h3 class="text-xl text-ink-red font-bold mt-0">{{ activeEntity.name }} <span class="text-sm font-normal text-stone-500">({{ activeEntity.type }})</span></h3>
                          <button @click="activeEntityId = null" class="text-stone-400 hover:text-ink-red text-xl leading-none">&times;</button>
@@ -76,8 +76,8 @@
                 <!-- Characters Tab -->
                 <div v-else-if="currentTab === 'characters'">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div v-for="charId in activeScript.characters" :key="charId" 
-                             class="p-3 border border-stone-300 rounded hover:bg-stone-100 cursor-pointer"
+                        <div v-for="charId in activeScript.characters" :key="charId"
+                             class="p-3 glass-panel-sm cursor-pointer hover:!border-ink-red/30"
                              @click="selectEntity(charId)">
                             <div class="font-bold text-ink-black">{{ mockEntities[charId]?.name }}</div>
                             <div class="text-sm text-stone-500 truncate">{{ mockEntities[charId]?.description }}</div>
@@ -89,7 +89,7 @@
                  <div v-else-if="currentTab === 'tasks'">
                       <div class="space-y-4">
                          <div v-for="taskId in activeScript.tasks" :key="taskId"
-                              class="p-3 border border-dashed border-stone-400 rounded bg-stone-50/60 hover:bg-stone-100/60 cursor-pointer"
+                              class="p-3 glass-panel-sm !border-dashed cursor-pointer hover:!border-ink-red/30"
                               @click="selectEntity(taskId)">
                              <div class="flex items-center">
                                 <span class="w-4 h-4 border border-ink-black mr-3 rounded-sm"></span>
@@ -103,7 +103,7 @@
             <!-- Bottom: Graph Visualization -->
             <div class="mt-4 border-t border-stone-300 pt-4 h-1/3 flex-shrink-0">
                 <h4 class="text-lg font-serif mb-2 text-stone-600">{{ $t('scripts.contextGraph') }}</h4>
-                <div ref="graphContainer" class="w-full h-full bg-white/30 border border-stone-300 rounded overflow-hidden"></div>
+                <div ref="graphContainer" class="w-full h-full glass-panel-sm !shadow-none overflow-hidden"></div>
             </div>
 
           </div>
@@ -244,5 +244,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Scoped styles */
+.paper-card.glass-panel-sm,
+.paper-card.glass-panel-md,
+.paper-card.glass-panel-lg,
+.paper-card.glass-panel-dark {
+  background: var(--_glass-bg, var(--glass-bg-light));
+  border: 1px solid var(--_glass-border, var(--glass-border-light));
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+}
 </style>

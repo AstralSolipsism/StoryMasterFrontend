@@ -4,7 +4,7 @@
     <div class="absolute inset-0 opacity-10 pointer-events-none bg-gradient-to-br from-amber-900/20 to-stone-800/10"></div>
     
     <!-- 散落布局容器 -->
-    <div class="scatter-container relative z-10 p-4 h-full overflow-y-auto custom-scrollbar">
+    <div class="scatter-container glass-panel-md glass-panel-dark relative z-10 p-4 h-full overflow-y-auto custom-scrollbar">
       <!-- 大纲便签区域 -->
       <div v-if="showToc && headings.length > 0" class="mb-6">
         <TableOfContentsCard
@@ -206,12 +206,12 @@ onMounted(() => {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(139, 69, 19, 0.2);
+  background-color: rgba(255, 248, 240, 0.18);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(139, 69, 19, 0.4);
+  background-color: rgba(255, 248, 240, 0.28);
 }
 
 /* 手写字体 */

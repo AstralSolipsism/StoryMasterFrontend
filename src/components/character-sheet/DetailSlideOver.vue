@@ -3,10 +3,10 @@
     <Transition name="slide-fade">
       <div v-if="isOpen" class="fixed inset-0 z-50 flex justify-end" role="dialog" aria-modal="true">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-black/50 transition-opacity backdrop-filter backdrop-blur-sm" @click="$emit('close')"></div>
+        <div class="fixed inset-0 transition-opacity glass-panel-sm glass-panel-dark !rounded-none !border-0 !shadow-none" style="--_glass-bg: var(--bg-overlay);" @click="$emit('close')"></div>
 
         <!-- Panel -->
-        <div class="relative w-full max-w-md h-full bg-[#fdf6e3]/95 backdrop-blur-md shadow-2xl flex flex-col transform transition-transform border-l-4 border-ink-red paper-texture">
+        <div class="relative w-full max-w-md h-full glass-panel-md !rounded-none flex flex-col transform transition-transform" style="border-left: 4px solid var(--color-ink-red);">
           
           <!-- Close Button -->
           <button @click="$emit('close')" class="absolute top-4 right-4 text-stone-500 hover:text-ink-red transition-colors focus:outline-none z-10">
@@ -17,7 +17,7 @@
           </button>
 
           <!-- Header -->
-          <div class="pt-12 px-6 pb-4 border-b border-stone-300 bg-stone-100/40 backdrop-blur-sm">
+          <div class="pt-12 px-6 pb-4 glass-panel-sm !shadow-none !rounded-none !border-x-0 !border-t-0">
             <h2 class="text-2xl font-serif font-bold text-ink-black tracking-wide">{{ title }}</h2>
             <div v-if="subtitle" class="text-sm font-bold uppercase text-stone-500 mt-1 tracking-widest">{{ subtitle }}</div>
           </div>
@@ -92,9 +92,6 @@ export default defineComponent({
 }
 
 .paper-texture {
-  background-image: url('../../assets/images/parchment-color.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
+  background-image: none;
 }
 </style>

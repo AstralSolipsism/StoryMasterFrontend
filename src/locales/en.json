@@ -22,6 +22,8 @@
     "llmNexus": "LLM Nexus",
     "provider": "Provider",
     "apiKey": "API Key",
+    "showApiKey": "Show API Key",
+    "hideApiKey": "Hide API Key",
     "modelName": "Model Name",
     "baseUrl": "Base URL (Optional)",
     "testConnection": "Test Connection",
@@ -43,6 +45,9 @@
     "level": "Lvl",
     "hp": "HP",
     "ac": "AC",
+    "fields": {
+      "level": "Level"
+    },
     "tabs": {
         "details": "Details",
         "inventory": "Inventory & Spells",

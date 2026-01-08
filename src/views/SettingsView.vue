@@ -1,6 +1,6 @@
 <template>
   <div class="settings-view">
-    <div class="content-container paper-card backdrop-card">
+    <div class="content-container paper-card backdrop-card glass-panel-md">
       <header class="page-header">
         <h1>{{ $t('settings.title') }}</h1>
         <p class="subtitle">{{ $t('settings.subtitle') }}</p>
@@ -8,7 +8,7 @@
 
       <div class="settings-grid">
          <!-- Language Settings Card -->
-        <div class="card parchment-card">
+        <div class="card parchment-card glass-panel-sm glass-hover">
           <div class="card-header">
             <h2>{{ $t('common.language') }}</h2>
             <span class="card-icon">🌐</span>
@@ -25,7 +25,7 @@
         </div>
 
         <!-- LLM Connection Card -->
-        <div class="card parchment-card">
+        <div class="card parchment-card glass-panel-sm glass-hover">
           <div class="card-header">
             <h2>{{ $t('settings.llmNexus') }}</h2>
             <span class="card-icon">🔮</span>
@@ -43,7 +43,25 @@
 
             <div class="form-group">
               <label>{{ $t('settings.apiKey') }}</label>
-              <input type="password" v-model="settings.apiKey" placeholder="sk-..." />
+              <div class="api-key-field">
+                <input
+                  :type="isApiKeyVisible ? 'text' : 'password'"
+                  v-model="settings.apiKey"
+                  placeholder="sk-..."
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button
+                  type="button"
+                  class="btn-key-toggle"
+                  @click="isApiKeyVisible = !isApiKeyVisible"
+                  :aria-label="isApiKeyVisible ? $t('settings.hideApiKey') : $t('settings.showApiKey')"
+                  :aria-pressed="isApiKeyVisible"
+                  :title="isApiKeyVisible ? $t('settings.hideApiKey') : $t('settings.showApiKey')"
+                >
+                  <i :class="isApiKeyVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                </button>
+              </div>
             </div>
 
             <div class="form-group">
@@ -64,7 +82,7 @@
         </div>
 
         <!-- System Parameters Card -->
-        <div class="card parchment-card">
+        <div class="card parchment-card glass-panel-sm glass-hover">
           <div class="card-header">
             <h2>{{ $t('settings.cosmicRules') }}</h2>
             <span class="card-icon">📜</span>
@@ -109,6 +127,8 @@ watch(locale, (newLocale) => {
   localStorage.setItem('user-locale', newLocale as string)
 })
 
+const isApiKeyVisible = ref(false)
+
 const settings = reactive({
   provider: 'openai',
   apiKey: '',
@@ -149,6 +169,16 @@ const saveSettings = () => {
   margin: 0 auto;
 }
 
+.paper-card.glass-panel-sm,
+.paper-card.glass-panel-md,
+.paper-card.glass-panel-lg,
+.paper-card.glass-panel-dark {
+  background: var(--_glass-bg, var(--glass-bg-light));
+  border: 1px solid var(--_glass-border, var(--glass-border-light));
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+}
+
 .page-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -182,27 +212,20 @@ h1 {
 }
 
 .backdrop-card {
-    background-color: rgba(255, 252, 240, 0.95);
-    border-radius: 8px;
-    padding: 3rem;
+  --_glass-bg: rgba(255, 248, 240, 0.35);
+  border-radius: 12px;
+  padding: 3rem;
 }
 
 .parchment-card {
-  background: rgba(255, 252, 240, 0.6);
-  border: 1px solid #8d6e63;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 0 20px rgba(161, 136, 127, 0.2);
-  border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.2s;
-}
-
-.parchment-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15), inset 0 0 20px rgba(161, 136, 127, 0.2);
 }
 
 .card-header {
-  background: #5d4037;
+  background: rgba(30, 20, 15, 0.55);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturation));
+  border-bottom: 1px solid var(--glass-border-dark);
   color: #efebe9;
   padding: 1rem;
   display: flex;
@@ -243,12 +266,52 @@ select,
 textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #8d6e63;
-  background: #fff8e1;
-  border-radius: 4px;
+  border: 1px solid var(--glass-border-light);
+  background: rgba(255, 248, 240, 0.6);
+  backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm)) saturate(var(--glass-saturation));
+  border-radius: 10px;
   font-family: 'Lato', sans-serif;
   color: #3e2723;
   transition: border-color 0.2s;
+}
+
+.api-key-field {
+  position: relative;
+}
+
+.api-key-field input {
+  padding-right: 3.2rem;
+}
+
+.btn-key-toggle {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(93, 64, 55, 0.35);
+  background: rgba(255, 248, 240, 0.25);
+  color: #5d4037;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.btn-key-toggle:hover {
+  background: rgba(255, 248, 240, 0.45);
+  border-color: rgba(93, 64, 55, 0.55);
+  color: #3e2723;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-key-toggle:focus-visible {
+  outline: 2px solid #d84315;
+  outline-offset: 2px;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -293,13 +356,30 @@ input[type="range"] {
 }
 
 .btn-test {
-  background: #8d6e63;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
+  background: #5d4037;
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.55rem 1rem;
   font-family: 'Cinzel', serif;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-test:hover {
+  background: #4e342e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-test:active {
+  transform: translateY(0);
+}
+
+.btn-test:focus-visible {
+  outline: 2px solid #d84315;
+  outline-offset: 2px;
 }
 
 .connection-status {

@@ -1,11 +1,11 @@
 <template>
-  <div class="inventory-panel border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm text-[var(--color-text-primary)] shadow-sm flex flex-col h-full min-h-[200px]">
+  <div class="inventory-panel glass-panel-md p-3 text-[var(--color-text-primary)] flex flex-col h-full min-h-[200px]">
     <!-- Header -->
     <div class="header flex justify-between items-center mb-3">
         <h3 class="text-xs uppercase font-bold text-[var(--color-text-secondary)] tracking-wider">{{ t('characters.inventory.title') }}</h3>
         <button v-if="isEditing"
                 @click="addItem"
-                class="text-[0.65rem] bg-[var(--color-bg-primary)] border border-[var(--color-border)] px-2 py-0.5 rounded hover:bg-[var(--color-bg-input)] transition-colors">
+                class="text-[0.65rem] glass-panel-sm glass-hover px-2 py-0.5 hover:bg-[rgba(255,248,240,0.4)] transition-colors">
             <i class="fas fa-plus mr-1"></i> {{ t('characters.inventory.addItem') }}
         </button>
     </div>
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in localInventory" :key="index" class="border-b border-[var(--color-border)]/30 last:border-0 group hover:bg-[var(--color-bg-primary)]/30 transition-colors">
+                <tr v-for="(item, index) in localInventory" :key="index" class="border-b border-[var(--color-border)]/30 last:border-0 group hover:bg-[var(--glass-bg-light)] transition-colors">
                     <td class="py-1.5 pl-1 font-semibold font-cinzel">
                         <span v-if="!isEditing">{{ getItemName(item.id) }}</span>
                          <input v-else v-model="item.id" class="w-full bg-transparent border-b border-transparent focus:border-[var(--color-primary)] outline-none" :placeholder="t('characters.inventory.itemPlaceholder')" />
@@ -50,7 +50,7 @@
     
     <!-- Footer stats (e.g. Total Weight) could go here -->
     <div class="mt-auto pt-2 border-t border-[var(--color-border)]/50 text-[0.65rem] text-[var(--color-text-secondary)] text-right flex justify-between items-center">
-        <span><i class="fas fa-coins text-yellow-600 mr-1"></i> GP: <span v-if="!isEditing">15</span><input v-else class="w-8 text-right bg-transparent border-b border-stone-300" value="15"/></span>
+        <span><i class="fas fa-coins text-yellow-600 mr-1"></i> GP: <span v-if="!isEditing">15</span><input v-else class="w-8 text-right bg-transparent border-b border-[var(--glass-border-light)]" value="15"/></span>
         <span>{{ t('characters.inventory.totalWeight') }}: {{ totalWeight }} lb</span>
     </div>
   </div>

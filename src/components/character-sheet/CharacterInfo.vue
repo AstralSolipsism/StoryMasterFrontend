@@ -1,5 +1,5 @@
 <template>
-  <div class="character-info p-4 border-2 border-stone-800 rounded-sm bg-parchment-light paper-texture relative overflow-hidden">
+  <div class="character-info p-4 border-2 border-stone-800 rounded-sm bg-parchment-light relative overflow-hidden">
     <div class="flex flex-col gap-4">
       
       <!-- Name Panel -->

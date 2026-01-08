@@ -1,11 +1,11 @@
 <template>
-  <div class="scrollable-catalog-wrapper relative flex flex-col">
+  <div class="scrollable-catalog-wrapper glass-panel-lg glass-panel-dark relative flex flex-col">
     <!--卷轴顶部装饰 - 模拟卷轴横杆 -->
     <div class="scroll-rod-top relative h-3 flex-shrink-0">
-      <div class="absolute inset-x-0 h-full bg-gradient-to-b from-amber-900/80 to-amber-800/60 rounded-t-lg"></div><div class="absolute inset-x-2 top-0.5 h-1.5 bg-gradient-to-b from-amber-600/40 to-transparent rounded-full"></div>
+      <div class="absolute inset-x-0 h-full bg-gradient-to-b from-amber-200/20 to-amber-100/10 rounded-t-xl"></div><div class="absolute inset-x-2 top-0.5 h-1.5 bg-gradient-to-b from-amber-200/25 to-transparent rounded-full"></div>
       <!-- 卷轴两端装饰 -->
-      <div class="absolute -left-1 top-0 w-4 h-3 bg-amber-900/90 rounded-full shadow-md"></div>
-      <div class="absolute -right-1 top-0 w-4 h-3 bg-amber-900/90 rounded-full shadow-md"></div>
+      <div class="absolute -left-1 top-0 w-4 h-3 bg-amber-950/30 rounded-full"></div>
+      <div class="absolute -right-1 top-0 w-4 h-3 bg-amber-950/30 rounded-full"></div>
     </div>
     
     <!-- 卷轴内容区域 -羊皮纸背景 -->
@@ -17,15 +17,15 @@
       <!-- 羊皮纸背景层 -->
       <div class="absolute inset-0 pointer-events-none">
         <!-- 基础颜色渐变 -->
-        <div class="absolute inset-0 bg-gradient-to-b from-amber-950/85 via-stone-900/80 to-amber-950/85"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/25"></div>
         <!-- 纹理覆盖 -->
-        <div 
-          class="absolute inset-0 opacity-10"
-          style="background-image: url('@/assets/images/parchment-color.png'); background-size: 200px;"
+        <div
+          class="absolute inset-0 opacity-5"
+          style="background-image: none;"
         ></div>
         <!-- 左右边缘阴影 - 模拟卷曲效果 -->
-        <div class="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/30 to-transparent"></div>
-        <div class="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black/30 to-transparent"></div>
+        <div class="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div class="absolute inset-y-0 right-0 w-3 bg-gradient-to-l from-black/20 to-transparent"></div>
       </div>
       
       <!-- 内容插槽 -->
@@ -53,11 +53,11 @@
     
     <!-- 卷轴底部装饰 - 模拟卷轴横杆 -->
     <div class="scroll-rod-bottom relative h-3 flex-shrink-0">
-      <div class="absolute inset-x-0 h-full bg-gradient-to-t from-amber-900/80 to-amber-800/60 rounded-b-lg"></div>
-      <div class="absolute inset-x-2 bottom-0.5 h-1.5 bg-gradient-to-t from-amber-600/40 to-transparent rounded-full"></div>
+      <div class="absolute inset-x-0 h-full bg-gradient-to-t from-amber-200/20 to-amber-100/10 rounded-b-xl"></div>
+      <div class="absolute inset-x-2 bottom-0.5 h-1.5 bg-gradient-to-t from-amber-200/25 to-transparent rounded-full"></div>
       <!-- 卷轴两端装饰 -->
-      <div class="absolute -left-1 bottom-0 w-4 h-3 bg-amber-900/90 rounded-full shadow-md"></div>
-      <div class="absolute -right-1 bottom-0 w-4 h-3 bg-amber-900/90 rounded-full shadow-md"></div>
+      <div class="absolute -left-1 bottom-0 w-4 h-3 bg-amber-950/30 rounded-full"></div>
+      <div class="absolute -right-1 bottom-0 w-4 h-3 bg-amber-950/30 rounded-full"></div>
     </div>
   </div>
 </template>
@@ -111,8 +111,7 @@ const handleSelect = (id: string) => {
   min-width: 200px;
   max-width: 280px;
   
-  /* 卷轴阴影 - 模拟立体感 */
-  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.4));
+  /* 阴影由全局毛玻璃工具类提供 */
 }
 
 /* 自定义滚动条样式 -羊皮纸风格 */

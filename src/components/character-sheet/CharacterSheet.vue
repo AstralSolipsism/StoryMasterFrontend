@@ -1,15 +1,15 @@
 <template>
-  <div class="character-sheet w-full max-w-[1200px] shadow-2xl rounded-sm p-4 md:p-6 relative text-stone-900 bg-transparent">
+  <div class="character-sheet w-full max-w-[1200px] glass-panel-md p-4 md:p-6 relative text-stone-900">
     <div class="absolute top-4 right-4 flex gap-2 no-print z-10">
       <button
         @click="showGraph = true"
-        class="px-3 py-1 bg-stone-200 border border-stone-400 rounded text-xs font-bold uppercase hover:bg-stone-300 hover:text-ink-red transition-colors shadow-sm flex items-center gap-1">
+        class="px-3 py-1 glass-panel-sm glass-hover text-xs font-bold uppercase hover:text-ink-red transition-colors flex items-center gap-1">
         <i class="fas fa-project-diagram"></i>
         <span class="hidden sm:inline">{{ $t('characters.sheet.actions.relations') }}</span>
       </button>
       <button
         @click="openInventory"
-        class="px-3 py-1 bg-stone-200 border border-stone-400 rounded text-xs font-bold uppercase hover:bg-stone-300 hover:text-ink-red transition-colors shadow-sm flex items-center gap-1">
+        class="px-3 py-1 glass-panel-sm glass-hover text-xs font-bold uppercase hover:text-ink-red transition-colors flex items-center gap-1">
         <i class="fas fa-suitcase"></i>
         <span class="hidden sm:inline">{{ $t('characters.sheet.actions.inventory') }}</span>
       </button>

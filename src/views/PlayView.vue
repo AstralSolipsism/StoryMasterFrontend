@@ -1,9 +1,9 @@
 <template>
   <div class="flex h-[calc(100vh-4rem)] gap-4 overflow-hidden p-2">
     <!-- Left: Chat Interface (The "Table") -->
-    <div class="flex-1 flex flex-col bg-white/80 backdrop-blur-md rounded-lg shadow-inner border border-stone-300 overflow-hidden relative">
+    <div class="flex-1 flex flex-col glass-panel-md overflow-hidden relative">
       <!-- Chat Header -->
-      <div class="p-4 bg-stone-100/90 backdrop-blur-sm border-b border-stone-200 flex justify-between items-center">
+      <div class="p-4 glass-panel-sm !shadow-none !rounded-none !border-x-0 !border-t-0 flex justify-between items-center">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-indigo-900 flex items-center justify-center text-amber-50">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3 3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/><line x1="8" x2="16" y1="22" y2="22"/></svg>
@@ -26,15 +26,15 @@
           <div 
             :class="[
               'max-w-[80%] rounded-2xl p-4 shadow-sm border font-lato leading-relaxed',
-              msg.role === 'user' 
-                ? 'bg-indigo-50 border-indigo-100 text-indigo-900 rounded-br-none' 
+              msg.role === 'user'
+                ? 'bg-indigo-50 border-indigo-200 text-indigo-950 rounded-br-none'
                 : 'bg-stone-50 border-stone-200 text-stone-900 rounded-bl-none'
             ]"
           >
             <!-- DM Avatar if needed -->
             <div v-if="msg.role === 'ai'" class="font-cinzel font-bold text-xs text-indigo-800 mb-1">{{ $t('play.dmRole') }}</div>
             <div class="whitespace-pre-wrap">{{ msg.content }}</div>
-            <div class="text-[10px] opacity-50 mt-2 text-right">{{ formatTime(msg.timestamp) }}</div>
+            <div class="text-[11px] mt-2 text-right text-stone-600">{{ formatTime(msg.timestamp) }}</div>
           </div>
         </div>
         
@@ -51,7 +51,7 @@
       </div>
 
       <!-- Input Area -->
-      <div class="p-4 bg-white/90 backdrop-blur-sm border-t border-stone-200">
+      <div class="p-4 glass-panel-sm !shadow-none !rounded-none !border-x-0 !border-b-0">
         <div class="relative">
           <textarea
             v-model="newMessage"
@@ -70,9 +70,9 @@
     </div>
 
     <!-- Right: Reference Book -->
-    <div class="w-96 flex flex-col bg-parchment-light rounded-r-lg shadow-2xl border-l-4 border-l-ink-black/80 relative perspective-book">
+    <div class="w-96 flex flex-col glass-panel-dark !rounded-l-none relative perspective-book">
        <!-- Book Spine Visual -->
-       <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-stone-800 to-stone-600 rounded-l"></div>
+       <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-r from-stone-800 to-stone-600 rounded-l-none"></div>
        
        <!-- Tabs (Bookmarks) -->
        <div class="flex pl-4 pt-2 gap-1 border-b border-ink-black/10 bg-stone-100/50">
@@ -92,7 +92,7 @@
        </div>
 
        <!-- Content -->
-       <div class="flex-1 overflow-y-auto p-6 font-serif paper-texture">
+       <div class="flex-1 overflow-y-auto p-6 font-serif">
          
          <!-- Character Tab -->
          <div v-if="activeTab === 'Character'" class="space-y-6">
@@ -233,7 +233,8 @@ const sendMessage = async () => {
 
 <style scoped>
 .perspective-book {
-  /* Simple depth effect */
-  box-shadow: -5px 0 15px rgba(0,0,0,0.1), inset 10px 0 20px rgba(0,0,0,0.05);
+  box-shadow: var(--glass-shadow),
+    -5px 0 15px rgba(0, 0, 0, 0.12),
+    inset 10px 0 20px rgba(0, 0, 0, 0.05);
 }
 </style>

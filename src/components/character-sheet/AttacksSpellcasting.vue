@@ -1,5 +1,5 @@
 <template>
-  <div class="attacks-spellcasting border-2 border-[var(--color-border)] rounded-lg p-3 bg-white/40 backdrop-blur-sm text-[var(--color-text-primary)] shadow-sm h-full flex flex-col">
+  <div class="attacks-spellcasting glass-panel-md p-3 text-[var(--color-text-primary)] h-full flex flex-col">
     <!-- Header -->
     <div class="header flex justify-between items-center mb-3">
         <h3 class="text-xs uppercase font-bold text-[var(--color-text-secondary)] tracking-wider">{{ t('characters.sheet.attacks.title') }}</h3>

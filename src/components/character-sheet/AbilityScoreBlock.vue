@@ -1,12 +1,12 @@
 <template>
   <div
-    class="ability-score-block flex gap-4 bg-stone-100/30 backdrop-blur-sm p-2 rounded border border-stone-300"
+    class="ability-score-block flex gap-4 glass-panel-sm p-2"
     :class="horizontal ? 'flex-row justify-between overflow-x-auto' : 'flex-col'"
   >
     <div
       v-for="(score, stat) in stats"
       :key="stat"
-      class="ability-card relative flex flex-col items-center justify-center p-2 rounded-lg bg-white/40 backdrop-blur-sm border border-stone-300 shadow-sm"
+      class="ability-card relative flex flex-col items-center justify-center p-2 rounded-lg bg-[rgba(255,248,240,0.12)] border border-[var(--glass-border-dark)]"
       :class="horizontal ? 'flex-1 min-w-[70px] max-w-[120px]' : ''"
     >
       
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Score (Small bubble) -->
-      <div class="mt-1 bg-white border border-stone-300 rounded-full w-10 h-8 flex items-center justify-center shadow-inner">
+      <div class="mt-1 bg-[rgba(255,248,240,0.6)] border border-[var(--glass-border-light)] rounded-full w-10 h-8 flex items-center justify-center shadow-inner">
         <span v-if="!isEditing" class="font-lora text-sm font-bold text-stone-700">{{ score }}</span>
         <input 
           v-else 

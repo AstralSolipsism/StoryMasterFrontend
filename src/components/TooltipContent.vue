@@ -1,11 +1,11 @@
 <template>
   <div class="tooltip-wrapper text-left text-sm text-stone-200">
-    <div v-if="loading" class="p-3 text-center text-stone-400 italic flex items-center justify-center gap-2">
+    <div v-if="loading" class="p-3 text-center text-stone-400 italic flex items-center justify-center gap-2 glass-panel-sm glass-panel-dark">
       <span class="animate-pulse">🔮</span> Reading Grimoire...
     </div>
-    <div v-else-if="entity" class="bg-[#1a1919] border border-[#44403c] rounded shadow-2xl overflow-hidden max-w-sm">
+    <div v-else-if="entity" class="glass-panel-sm glass-panel-dark overflow-hidden max-w-sm">
       <!-- Header -->
-      <div class="bg-[#292524] p-2 px-3 border-b border-[#44403c] flex justify-between items-baseline">
+      <div class="glass-panel-sm glass-panel-dark !shadow-none !rounded-none !border-x-0 !border-t-0 p-2 px-3 flex justify-between items-baseline">
         <h4 class="font-bold text-amber-500 font-serif tracking-wide">{{ entity.name }}</h4>
         <span class="text-[0.65rem] uppercase tracking-widest text-stone-500 ml-2 border border-stone-700 px-1 rounded">{{ entity.type }}</span>
       </div>
@@ -17,14 +17,14 @@
       </div>
 
       <!-- Footer: Quick Relations -->
-      <div v-if="entity.relations && entity.relations.length" class="bg-black/20 p-2 text-xs border-t border-[#44403c] space-y-1">
+      <div v-if="entity.relations && entity.relations.length" class="glass-panel-sm glass-panel-dark !shadow-none !rounded-none !border-x-0 !border-b-0 p-2 text-xs space-y-1">
          <div v-for="(rel, idx) in entity.relations" :key="idx" class="flex gap-2">
              <span class="text-stone-500 font-mono">{{ rel.type }}:</span>
              <span class="text-stone-400">{{ getEntityName(rel.targetId) }}</span>
          </div>
       </div>
     </div>
-    <div v-else class="p-2 text-red-400 bg-red-900/10 border border-red-900/50 rounded">
+    <div v-else class="p-2 text-red-400 glass-panel-sm glass-panel-dark" style="--_glass-bg: rgba(127, 29, 29, 0.22); --_glass-border: rgba(127, 29, 29, 0.55);">
       Fizzled... (Unknown Entity: {{ entityId }})
     </div>
   </div>

@@ -4,12 +4,12 @@
     style="height: calc(100vh - 140px);"
   >
     <!-- Header -->
-    <header class="bg-[#2a1a10]/90 backdrop-blur-md text-stone-100 p-3 shadow-xl flex-shrink-0 z-10 border-b border-[#5e4b35] flex justify-between items-center relative">
-      <div class="absolute inset-0 bg-[url('@/assets/images/wood-pattern.png')] opacity-20 pointer-events-none"></div>
+    <header class="rulebook-header glass-panel-dark text-stone-100 p-3 flex-shrink-0 z-10 flex justify-between items-center relative">
+      <div class="absolute inset-0 bg-black opacity-20 pointer-events-none"></div>
       <div class="relative z-10 flex items-center pl-4">
         <div>
           <h2 class="text-2xl font-cinzel text-amber-500 tracking-wider text-shadow-sm">{{ $t('rulebook.title') }}</h2>
-          <p class="text-stone-400 italic text-xs header-subtitle">{{ $t('rulebook.subtitle') }}</p>
+          <p class="text-stone-200/90 italic text-xs header-subtitle">{{ $t('rulebook.subtitle') }}</p>
         </div></div>
     </header>
 
@@ -21,16 +21,16 @@
       <!-- 窄屏模式：Backdrop for Sidebar (Mobile & Desktop Overlay) -->
       <div
         v-if="!isWideLayout && isSidebarOpen"
-        class="absolute inset-0 z-30 bg-black/40 backdrop-blur-sm transition-opacity duration-300"
+        class="absolute inset-0 z-30 rulebook-sidebar-backdrop glass-panel-sm glass-panel-dark transition-opacity duration-300"
         @click="isSidebarOpen = false"></div>
 
       <!-- 窄屏模式：Left Sidebar: Catalog Tree (Drawer style) -->
       <aside
         v-if="!isWideLayout"
-        class="absolute top-0 left-0 z-50 h-full w-80 bg-[#1c110a] shadow-2xl flex flex-col transition-transform duration-300 ease-in-out border-r border-[#5e4b35]"
+        class="absolute top-0 left-0 z-50 h-full w-80 rulebook-sidebar glass-panel-dark flex flex-col transition-transform duration-300 ease-in-out"
         :class="[isSidebarOpen ? 'translate-x-0' : '-translate-x-full']"
       >
-        <div class="p-4 bg-black/40 border-b border-[#5e4b35] font-bold text-stone-300flex justify-between items-center">
+        <div class="p-4 rulebook-sidebar-header glass-panel-sm glass-panel-dark font-bold text-stone-300flex justify-between items-center">
           <div class="flex items-center text-amber-600/90">
             <span class="text-xl mr-2">✦</span>
             <span class="font-cinzel tracking-wider text-sm">{{ $t('rulebook.title') }}</span>
@@ -41,7 +41,7 @@
             </svg>
           </button>
         </div>
-        <div class="flex-grow overflow-y-auto p-4 custom-scrollbar bg-[#1c110a]">
+        <div class="flex-grow overflow-y-auto p-4 custom-scrollbar">
           <CatalogTree
             :nodes="catalogNodes"
             :activeId="activeContentId"
@@ -54,7 +54,7 @@
       <Transition name="fade-slide-left">
         <aside
           v-if="showWidePanels"
-          class="widescreen-left-panel h-full overflow-hidden flex flex-col p-4">
+          class="widescreen-left-panel glass-panel-dark h-full overflow-hidden flex flex-col p-4">
           <ScrollableCatalogWrapper
             :nodes="catalogNodes"
             :activeId="activeContentId"
@@ -91,9 +91,9 @@
           <div class="absolute left-0 top-0 bottom-0 w-2 md:w-6 bg-gradient-to-r from-[#2a1a10] to-[#5e4b35] z-20 shadow-xl"></div>
           
           <!-- Background Image -->
-          <div class="absolute inset-0 pointer-events-none z-10 opacity-100 bg-cover bg-center" style="background-image: url('/src/assets/images/paper-texture.jfif');"></div>
+          <div class="absolute inset-0 pointer-events-none z-10 opacity-100 bg-cover bg-center" style="background-image: none;"></div>
           <!-- Texture Blend -->
-          <div class="absolute inset-0 pointer-events-none z-10 mix-blend-multiply opacity-20 bg-[url('@/assets/images/parchment-color.png')] bg-repeat bg-[length:300px_300px]"></div><div class="flex-1 p-4 pt-16 md:p-12 md:pl-20 relative z-10 overflow-hidden flex flex-col min-h-0">
+          <div class="absolute inset-0 pointer-events-none z-10 mix-blend-multiply opacity-20 bg-transparent"></div><div class="flex-1 p-4 pt-16 md:p-12 md:pl-20 relative z-10 overflow-hidden flex flex-col min-h-0">
             <!-- Page Content Wrapper -->
             <div class="flex flex-col flex-1 min-h-0">
               <!-- Breadcrumbs styled as header text -->
@@ -644,6 +644,34 @@ const handleEntityClick = (entity: Entity) => {
   perspective: 1000px;
 }
 
+.rulebook-header.glass-panel-dark {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 248, 240, 0.16);
+  border-radius: 0;
+  --_glass-bg: rgba(42, 26, 16, 0.72);
+  --_glass-border: rgba(255, 248, 240, 0.14);
+}
+
+.rulebook-sidebar-backdrop.glass-panel-sm.glass-panel-dark {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  --_glass-bg: rgba(0, 0, 0, 0.35);
+}
+
+.rulebook-sidebar.glass-panel-dark {
+  --_glass-bg: rgba(28, 17, 10, 0.72);
+  --_glass-border: rgba(255, 248, 240, 0.12);
+}
+
+.rulebook-sidebar-header.glass-panel-sm.glass-panel-dark {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  --_glass-bg: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255, 248, 240, 0.12);
+}
+
 /*========== 宽屏三栏布局 ========== */
 .widescreen-grid {
   display: grid;
@@ -654,7 +682,6 @@ const handleEntityClick = (entity: Entity) => {
 
 .widescreen-left-panel {
   /* 左侧卷轴区域 */
-  background: transparent;
   position: relative;
   z-index: 1;
 }

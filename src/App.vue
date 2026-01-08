@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Navigation / Header -->
-    <header class="bg-ink-black text-parchment-light p-4 shadow-md z-10">
+    <header class="glass-panel-dark text-parchment-light p-4 z-10 !rounded-none">
       <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-2xl font-bold tracking-wider">{{ $t('nav.title') }}</h1>
         <nav>

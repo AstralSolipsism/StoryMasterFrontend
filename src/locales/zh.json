@@ -22,6 +22,8 @@
     "llmNexus": "LLM 枢纽",
     "provider": "提供商",
     "apiKey": "API 密钥",
+    "showApiKey": "显示 API 密钥",
+    "hideApiKey": "隐藏 API 密钥",
     "modelName": "模型名称",
     "baseUrl": "基础 URL (可选)",
     "testConnection": "测试连接",
@@ -43,6 +45,9 @@
     "level": "等级",
     "hp": "生命值",
     "ac": "护甲等级",
+    "fields": {
+      "level": "等级"
+    },
     "tabs": {
         "details": "详情",
         "inventory": "物品与法术",

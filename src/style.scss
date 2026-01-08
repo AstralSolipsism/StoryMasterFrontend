@@ -10,8 +10,64 @@
   --font-serif: "Crimson Text", "Georgia", "Cambria", "Times New Roman", "Times", "serif";
   --font-handwriting: "Courier New", "Courier", "monospace";
 
-  --background-image-parchment: url('./assets/images/parchment-color.png');
   --bg-overlay: rgba(20, 20, 20, 0.65);
+
+  /* Glassmorphism (Warm Arcane) */
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 24px;
+  --glass-bg-light: rgba(255, 248, 240, 0.25);
+  --glass-bg-dark: rgba(30, 20, 15, 0.4);
+  --glass-border-light: rgba(255, 248, 240, 0.3);
+  --glass-border-dark: rgba(255, 248, 240, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-saturation: 180%;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel-sm,
+.glass-panel-md,
+.glass-panel-lg,
+.glass-panel-dark {
+  background: var(--_glass-bg, var(--glass-bg-light));
+  backdrop-filter: blur(var(--_glass-blur, var(--glass-blur-md))) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--_glass-blur, var(--glass-blur-md))) saturate(var(--glass-saturation));
+  border: 1px solid var(--_glass-border, var(--glass-border-light));
+  box-shadow: var(--glass-shadow);
+  border-radius: 12px;
+}
+
+.glass-panel-sm {
+  --_glass-blur: var(--glass-blur-sm);
+  --_glass-bg: rgba(255, 248, 240, 0.32);
+  --_glass-border: var(--glass-border-light);
+}
+
+.glass-panel-md {
+  --_glass-blur: var(--glass-blur-md);
+  --_glass-bg: var(--glass-bg-light);
+  --_glass-border: var(--glass-border-light);
+}
+
+.glass-panel-lg {
+  --_glass-blur: var(--glass-blur-lg);
+  --_glass-bg: rgba(255, 248, 240, 0.18);
+  --_glass-border: var(--glass-border-dark);
+}
+
+.glass-panel-dark {
+  --_glass-bg: var(--glass-bg-dark);
+  --_glass-border: var(--glass-border-dark);
+}
+
+.glass-hover {
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.glass-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 248, 240, 0.45);
 }
 
 /* Custom Utilities */
@@ -38,9 +94,6 @@
 
 /* Book Layout & Typography */
 .book-container {
-  background-image: var(--background-image-parchment);
-  background-repeat: repeat;
-  background-size: 500px;
   position: relative;
   box-shadow:
     inset 0 0 30px rgba(0,0,0,0.1),
@@ -80,11 +133,8 @@
 
 /* Texture & Utility */
 .paper-texture {
-  background-color: transparent; /* Changed to transparent to allow underlay color to show through */
-  background-image: var(--background-image-parchment);
-  background-repeat: repeat;
-  background-attachment: local;
-  background-size: 500px; /* Ensure texture is visible */
+  background-color: transparent; /* 保持原有透明逻辑，移除贴图 */
+  background-image: none;
 }
 
 /* Illuminated Manuscript Headers */

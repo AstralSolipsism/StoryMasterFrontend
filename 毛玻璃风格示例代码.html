@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔幻毛玻璃风格指南 | Magic Glassmorphism</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google Fonts (Cinzel for Magic feel, Inter for readability) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --glass-blur: 16px;
+            --glass-opacity: 0.25;
+            --glass-saturation: 180%;
+            --border-opacity: 0.3;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        h1, h2, h3, .magic-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* 动态背景 - 魔法光球 */
+        .magic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1e1b4b 0%, #000000 100%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.8;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #7c3aed; /* Violet */
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #db2777; /* Pink */
+            bottom: 20%;
+            right: -50px;
+            animation-delay: -2s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: #2563eb; /* Blue */
+            top: 40%;
+            left: 40%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -50px); }
+        }
+
+        /* 核心毛玻璃类 - 通过 CSS 变量控制 */
+        .glass-panel {
+            /* 核心属性 */
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+            
+            /* 边框和阴影增加质感 */
+            border: 1px solid rgba(255, 255, 255, var(--border-opacity));
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* 装饰性光泽 */
+        .glass-shine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+
+        /* 滑块样式 */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            height: 6px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transition: transform 0.2s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+            background: rgba(0, 0, 0, 0.6);
+            border-left: 4px solid #a855f7;
+        }
+        
+        /* 浮动卡片动画 */
+        .hover-float {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start py-10 px-4">
+
+    <!-- 动态背景层 -->
+    <div class="magic-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- 标题区域 -->
+    <header class="text-center mb-12 relative z-10">
+        <div class="inline-block p-2 rounded-full border border-purple-500/30 bg-black/20 backdrop-blur-sm mb-4">
+            <span class="text-purple-300 text-xs font-bold px-3 py-1 uppercase tracking-widest">Web Design Tutorial</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)]">
+            毛玻璃炼金术
+        </h1>
+        <p class="mt-4 text-gray-300 max-w-lg mx-auto font-light">
+            探索 Glassmorphism 的奥秘。拖动下方滑块，实时调制出属于你的魔幻界面风格。
+        </p>
+    </header>
+
+    <!-- 主交互区域 -->
+    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 z-10">
+        
+        <!-- 左侧：控制台 (也是一个毛玻璃卡片) -->
+        <section class="lg:col-span-4 space-y-6">
+            <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+                <div class="glass-shine"></div>
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-purple-400"></i> 参数调配
+                </h2>
+
+                <!-- 模糊度控制 -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2 text-sm">
+                        <label>Blur (模糊度)</label>
+                        <span id="blur-val" class="text-purple-300">16px</span>
+                    </div>
+                    <input type="range" id="blur-input" min="0" max="40" value="16">
+                </div>
+
+                <!-- 透明度控制 -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2 text-sm">
+                        <label>Opacity (透明度)</label>
+                        <span id="opacity-val" class="text-pink-300">0.25</span>
+                    </div>
+                    <input type="range" id="opacity-input" min="0" max="1" step="0.01" value="0.25">
+                </div>
+
+                <!-- 饱和度控制 -->
+                <div class="mb-6">
+                    <div class="flex justify-between mb-2 text-sm">
+                        <label>Saturation (色彩增强)</label>
+                        <span id="sat-val" class="text-blue-300">180%</span>
+                    </div>
+                    <input type="range" id="sat-input" min="100" max="200" value="180">
+                </div>
+
+                <div class="pt-4 border-t border-white/10">
+                    <p class="text-xs text-gray-400 mb-2">当前 CSS 代码 (点击复制):</p>
+                    <div class="code-block p-3 rounded text-xs cursor-pointer hover:bg-black/80 transition group relative" onclick="copyCode()">
+                        <code id="css-output" class="text-green-300 break-all">
+background: rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(16px);
+                        </code>
+                        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition">
+                            <i class="fa-regular fa-copy text-white"></i>
+                        </div>
+                    </div>
+                    <p id="copy-msg" class="text-center text-xs text-green-400 mt-2 opacity-0 transition">已复制到剪贴板!</p>
+                </div>
+            </div>
+
+            <!-- 提示卡片 -->
+            <div class="glass-panel rounded-2xl p-6 text-sm text-gray-200">
+                <h3 class="font-bold text-purple-300 mb-2">💡 设计秘籍</h3>
+                <ul class="list-disc pl-4 space-y-2 marker:text-purple-500">
+                    <li>背景必须足够复杂或色彩丰富，否则看不出模糊效果。</li>
+                    <li>使用细微的半透明边框 (1px white 0.3 opacity) 来界定边缘。</li>
+                    <li>内容文字应保持高对比度（通常是白色）。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 右侧：预览区 -->
+        <section class="lg:col-span-8 flex flex-col gap-6">
+            
+            <!-- 英雄卡片预览 -->
+            <div class="glass-panel rounded-3xl p-8 md:p-12 relative flex flex-col md:flex-row items-center gap-8 hover-float">
+                <div class="glass-shine"></div>
+                <!-- 装饰图标 -->
+                <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30 shrink-0">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-white"></i>
+                </div>
+                
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-3xl font-bold mb-2 magic-font">Mystic UI Element</h2>
+                    <p class="text-gray-200 mb-6">
+                        这是主预览卡片。观察背景中的光球如何在卡片下方模糊移动。这种效果赋予界面极强的层次感和现代感。
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <button class="px-6 py-2 rounded-lg bg-white/20 hover:bg-white/30 border border-white/20 transition backdrop-blur-md">
+                            Accept Quest
+                        </button>
+                        <button class="px-6 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-600/30 transition border border-transparent">
+                            Cast Spell
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 小部件网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 信用卡风格 -->
+                <div class="glass-panel rounded-2xl p-6 hover-float flex flex-col justify-between h-48">
+                    <div class="flex justify-between items-start">
+                        <i class="fa-brands fa-cc-visa text-3xl text-white/80"></i>
+                        <i class="fa-solid fa-wifi text-white/50 rotate-90"></i>
+                    </div>
+                    <div>
+                        <p class="font-mono text-lg tracking-widest mb-1">4522 8899 1029 3345</p>
+                        <div class="flex justify-between text-xs text-gray-300 uppercase">
+                            <span>Card Holder</span>
+                            <span>Expires</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-sm">
+                            <span>Gandalf The Grey</span>
+                            <span>12/28</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 玩家状态风格 -->
+                <div class="glass-panel rounded-2xl p-6 hover-float">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" class="w-12 h-12 rounded-full border-2 border-white/50 bg-white/10">
+                        <div>
+                            <h4 class="font-bold">Eldric Shadow</h4>
+                            <p class="text-xs text-purple-300">Level 42 Sorcerer</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-full bg-black/30 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-green-400 to-emerald-500 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <div class="w-full bg-black/30 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-between text-xs text-gray-400">
+                        <span>HP: 850/1000</span>
+                        <span>MP: 320/500</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- 底部教学区 -->
+    <footer class="mt-16 w-full max-w-4xl glass-panel rounded-xl p-8 z-10">
+        <h3 class="text-2xl font-bold mb-4 magic-font text-center">如何制作这种效果？</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-200 leading-relaxed">
+            <div>
+                <h4 class="font-bold text-purple-300 mb-2">1. 关键属性: backdrop-filter</h4>
+                <p class="mb-2">
+                    魔法的核心在于 <code class="bg-black/30 px-1 py-0.5 rounded text-pink-300">backdrop-filter: blur(x)</code>。这告诉浏览器：不要只模糊元素本身，而是模糊元素<b>背后</b>的东西。
+                </p>
+                <p>
+                    注意：为了兼容 Safari 浏览器，必须同时加上 <code class="bg-black/30 px-1 py-0.5 rounded text-pink-300">-webkit-backdrop-filter</code>。
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-purple-300 mb-2">2. 半透明背景层</h4>
+                <p class="mb-2">
+                    如果背景完全透明，字会看不清；如果完全不透明，就看不到背后的模糊。
+                </p>
+                <p>
+                    最佳实践是使用 RGBA 白色，透明度在 0.1 到 0.3 之间，例如：<code class="bg-black/30 px-1 py-0.5 rounded text-pink-300">background: rgba(255,255,255, 0.2)</code>。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 获取 DOM 元素
+        const root = document.documentElement;
+        const blurInput = document.getElementById('blur-input');
+        const opacityInput = document.getElementById('opacity-input');
+        const satInput = document.getElementById('sat-input');
+        
+        const blurVal = document.getElementById('blur-val');
+        const opacityVal = document.getElementById('opacity-val');
+        const satVal = document.getElementById('sat-val');
+        const cssOutput = document.getElementById('css-output');
+        const copyMsg = document.getElementById('copy-msg');
+
+        // 更新函数
+        function updateGlass() {
+            const blur = blurInput.value;
+            const opacity = opacityInput.value;
+            const saturation = satInput.value;
+
+            // 更新 CSS 变量
+            root.style.setProperty('--glass-blur', `${blur}px`);
+            root.style.setProperty('--glass-opacity', opacity);
+            root.style.setProperty('--glass-saturation', `${saturation}%`);
+
+            // 更新显示的数值
+            blurVal.textContent = `${blur}px`;
+            opacityVal.textContent = opacity;
+            satVal.textContent = `${saturation}%`;
+
+            // 更新代码块文本
+            const cssText = `
+/* Glass Effect CSS */
+background: rgba(255, 255, 255, ${opacity});
+backdrop-filter: blur(${blur}px) saturate(${saturation}%);
+-webkit-backdrop-filter: blur(${blur}px) saturate(${saturation}%);
+border: 1px solid rgba(255, 255, 255, 0.3);
+            `.trim();
+            cssOutput.textContent = cssText;
+        }
+
+        // 监听事件
+        blurInput.addEventListener('input', updateGlass);
+        opacityInput.addEventListener('input', updateGlass);
+        satInput.addEventListener('input', updateGlass);
+
+        // 复制代码功能
+        function copyCode() {
+            const code = cssOutput.innerText;
+            
+            // 使用现代剪贴板 API
+            const textArea = document.createElement("textarea");
+            textArea.value = code;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy'); // Fallback for some iframe environments
+            document.body.removeChild(textArea);
+
+            // 显示成功提示
+            copyMsg.style.opacity = '1';
+            setTimeout(() => {
+                copyMsg.style.opacity = '0';
+            }, 2000);
+        }
+
+        // 初始化
+        updateGlass();
+    </script>
+</body>
+</html>

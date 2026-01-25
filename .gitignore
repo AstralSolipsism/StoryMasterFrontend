@@ -27,3 +27,8 @@ dist-ssr
 # PDF files
 *.pdf
 *.PDF
+
+# Local tooling / temporary artifacts
+.claude/
+.playwright-mcp/
+screenshots/

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="h-screen flex flex-col overflow-hidden">
     <!-- Navigation / Header -->
     <header class="glass-panel-dark text-parchment-light p-4 z-10 !rounded-none">
       <div class="container mx-auto flex justify-between items-center">
@@ -20,7 +20,7 @@
 
     <!-- Main Content Area -->
     <main
-      class="flex-grow relative"
+      class="flex-grow min-h-0 relative flex flex-col"
       :class="isRulebookRoute ? 'w-full max-w-none mx-0 p-0' : 'container mx-auto p-6'"
     >
       <!-- The router view will render the active page -->

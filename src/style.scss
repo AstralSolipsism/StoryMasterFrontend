@@ -101,35 +101,7 @@
     5px 5px 15px rgba(0,0,0,0.3);
 }
 
-.book-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  margin-left: -1px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(139, 69, 19, 0.2) 10%,
-    rgba(139, 69, 19, 0.4) 50%,
-    rgba(139, 69, 19, 0.2) 90%,
-    transparent
-  );
-  z-index: 10;
-  pointer-events: none;
-}
 
-.book-columns {
-  column-count: 1;
-  column-gap: 3rem;
-  column-rule: 1px solid rgba(139, 69, 19, 0.1);
-  
-  @media (min-width: 1024px) {
-    column-count: 2;
-  }
-}
 
 /* Texture & Utility */
 .paper-texture {
@@ -221,3 +193,9 @@ body {
   @apply bg-parchment-light shadow-lg rounded-sm p-4 border border-stone-300;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
+
+/* 翻页时禁用页面滚动 */
+body.flipping {
+  overflow: hidden;
+}
+

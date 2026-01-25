@@ -205,6 +205,7 @@
     "title": "规则书",
     "subtitle": "铭刻在魔法中的领域法则。",
     "chapters": "章节",
+    "selectChapter": "请选择一个章节开始阅读。",
     "backToChapter": "返回章节",
     "knowledgeGraph": "知识图谱"
   },
